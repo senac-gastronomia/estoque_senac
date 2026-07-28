@@ -41,7 +41,7 @@ body {
 
 .sidebar button {
     height: 40px;
-    background-color: #f8f8f8;
+    background-color: #747474;
     border: none;
     font-family: inherit;
     color: inherit;
@@ -86,7 +86,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 15px;
-    background: #f8f8f8;
+    background: #747474;
     border-radius: 10px;
 }
 
