@@ -1,46 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css" />
-    <title>Docente</title>
+    <title>Sidebar Docente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <aside class="sidebar">
+
         <header class="sidebar-header">
-            <img class="logo-img" src="/img/logo-SENAC.png" alt="Logo" />
+            <img class="logo-img" src="/sidbar.teste/img/logo-SENAC.png" alt="Logo Senac">
         </header>
 
-
         <nav>
-            <button>
-                <span>
-                    <img src="/img/icons8-home-50.png" alt="Home Icon" />
-                    <span> Home </span>
-                </span>
+
+            <button class="menu-item active">
+                <div class="menu-icon">
+                    <img src="/sidbar.teste/img/icons8-home-50.png" alt="">
+                </div>
+                <div class="menu-text">
+                    Home
+                </div>
             </button>
 
-            <button>
-                <span>
-                    <img src="/img/inbox.png" alt="Solicitacao Icon" />
-                    <span> Nova Solicitação </span>
-                </span>
+            <button class="menu-item">
+                <div class="menu-icon">
+                    <img src="/sidbar.teste/img/inbox.png" alt="">
+                </div>
+                <div class="menu-text">
+                    Nova Solicitação
+                </div>
             </button>
 
-            <button>
-                <span>
-                    <img src="/img/icons8-clipboard-50.png" alt="Pedidos Icon" />
-                    <span> Meus Pedidos </span>
-                </span>
+            <button class="menu-item">
+                <div class="menu-icon">
+                    <img src="/sidbar.teste/img/inbox.exit.png" alt="">
+                </div>
+                <div class="menu-text">
+                    Meus Pedidos
+                </div>
             </button>
+
 
         </nav>
+
+        <footer class="sidebar-footer">
+
+            <img class="chapeu-img" src="/sidbar.teste/img/icons8-chapéu-de-chef-90.png" alt="Chapéu">
+
+            <div class="info">
+                <span><strong>Cozinha Pedagógica Senac</strong></span>
+                <span><strong>Unidade:</strong> Senac Sorocaba</span>
+                <span><strong>Setor:</strong> Cozinha Pedagógica</span>
+            </div>
+
+        </footer>
+
     </aside>
+
 </body>
 
 </html>
