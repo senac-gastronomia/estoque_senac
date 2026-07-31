@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: url(../assets/img/fundo.png);
+    background-size: cover;
+}
+
+.division {
+    display: flex;
+    justify-content: space-between;
+
+    .containerLeft {
+        border: solid black;
+        width: 50%;
+        display: grid;
+        justify-content: center;
+
+        .senacLogo {
+            width: 500px;
+        }
+
+    }
+
+    .containerRight {
+        border: solid black;
+        width: 50%;
+        display: grid;
+        justify-content: center;
+    }
+}
