@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link rel="stylesheet"  href="styleAdicionar.css" />
+    <link rel="stylesheet" href="styleCarrinho.css">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;700&display=swap" />
+    <title>Tabela</title>
+    <style>
+    body {
+    background-image: url('../tabelaCarrinho/img-tabela/img.fundo.png');
+    /* Fixa o fundo na tela para ele não subir junto com o texto */
+    background-attachment: fixed; 
+    /* Estica a imagem para cobrir toda a área visível sem distorcer */
+    background-size: cover; 
+    /* Centraliza o fundo na tela */
+    background-position: center; 
+    /* Evita repetições em mosaico */
+    background-repeat: no-repeat; 
+    }
+    </style>
+</head>
+<body>
+  <!-- =========================================================
+     ADICIONAR INGREDIENTES
+     ========================================================= -->
+
+<div class="adicionar-ingredientes">
+
+    <!-- Caixa principal -->
+    <div class="adicionar-ingredientes-child"></div>
+
+    <!-- Pesquisa -->
+    <div class="pesquisar">
+        <input
+            class="buscar-input"
+            type="text"
+            placeholder="Buscar ingrediente (ex: Leite, Açúcar, etc...)"
+        >
+        <img
+            src="img-tabela/lupa.png"
+            class="image-50-icon"
+            alt="Pesquisar"
+        >
+    </div>
+
+    <!-- Tabela -->
+    <div class="tabela">
+
+        <div class="tabela-item"></div>
+
+        <div class="cabecalho ingrediente-header">Ingrediente</div>
+        <div class="cabecalho descricao-header">Descrição</div>
+        <div class="cabecalho quantidade-header">Quantidade</div>
+        <div class="cabecalho acao-header">Ação</div>
+
+        <!-- Ingredientes criados pelo JS -->
+        <div class="lista-ingredientes"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     RESUMO DA SOLICITAÇÃO
+     ========================================================= -->
+
+<div class="resumo-solicitao">
+
+    <!-- Caixa principal -->
+    <div class="resumo-solicitao-child"></div>
+
+    <!-- Título -->
+    <div class="titulo5">
+        <img
+            class="image-99-icon"
+            src="img-tabela/carrinho.png"
+            alt="Carrinho"
+        >
+        <b class="resumo-da-solicitao">Resumo da solicitação</b>
+    </div>
+
+    <!-- Carrinho -->
+    <div class="carrinho">
+
+        <div class="itens-solicitados">
+            <b>Itens solicitados</b>
+        </div>
+
+        <!-- Cabeçalhos -->
+        <div class="carrinho-header ingrediente-header">Ingrediente</div>
+        <div class="carrinho-header descricao-header">Descrição</div>
+        <div class="carrinho-header quantidade-header">Quantidade</div>
+        <div class="carrinho-header observacoes-header">Observações</div>
+        <div class="carrinho-header acao-header">Ação</div>
+
+        <!-- Itens adicionados -->
+        <div class="carrinho-ingredientes"></div>
+
+        <!-- Total -->
+        <div class="total">
+            <div class="total-child">
+                <b>Total de itens:</b>
+                <span class="numero-total">0</span>
+            </div>
+            <div class="total-item"></div>
+        </div>
+
+        <!-- Resetar -->
+        <button class="btn-resetar">
+            <img src="img-tabela/Deletar.png" alt="Deletar">
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JavaScript -->
+<script src="tabela.js"></script>
+</body>
+</html>

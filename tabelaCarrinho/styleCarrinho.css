@@ -1,0 +1,315 @@
+/* =========================================================
+   RESUMO
+   ========================================================= */
+
+.resumo-solicitao {
+    width: 1250px;
+    height: 519px;
+    position: relative;
+    margin-top: 25px;
+    color: #000;
+    font: 16px 'Open Sans', Arial, sans-serif;
+    text-align: left;
+}
+
+.resumo-solicitao-child {
+    position: absolute;
+    inset: 0;
+    width: 1250px;
+    height: 519px;
+    background: #fff;
+    border: 2px solid rgba(0,0,0,.07);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.titulo5 {
+    position: absolute;
+    top: 7px;
+    left: 24px;
+    width: 369px;
+    height: 52px;
+    font-size: 18px;
+}
+
+.image-99-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+}
+
+.titulo5 .image-99-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.resumo-da-solicitao {
+    position: absolute;
+    top: 11px;
+    left: 67px;
+    width: 303px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   CARRINHO
+   ========================================================= */
+
+.carrinho {
+    position: absolute;
+    top: 71px;
+    left: 20px;
+    width: 1207px;
+    height: 435px;
+    border: 2px solid #303030;
+    box-sizing: border-box;
+    background: #fff;
+    overflow: hidden;
+}
+
+
+/* Título */
+
+.itens-solicitados {
+    width: 100%;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #303030;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   CABEÇALHOS
+   ========================================================= */
+
+.carrinho-header {
+    position: absolute;
+    top: 51px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 3;
+}
+
+.carrinho-header.ingrediente-header {
+    left: 0;
+    width: 233px;
+    background: linear-gradient(#0077ff,#0053b1);
+}
+
+.carrinho-header.descricao-header {
+    left: 233px;
+    width: 230px;
+    background: linear-gradient(#81bcff,#5da8ff);
+}
+
+.carrinho-header.quantidade-header {
+    left: 459px;
+    width: 234px;
+    background: linear-gradient(#ffa042,#d28335);
+}
+
+.carrinho-header.observacoes-header {
+    left: 693px;
+    width: 351px;
+    background: linear-gradient(#ffc000,#fdd351);
+}
+
+.carrinho-header.acao-header {
+    left: 1044px;
+    width: 161px;
+    background: linear-gradient(#388841,#607b63);
+}
+
+
+/* =========================================================
+   ITENS
+   ========================================================= */
+
+.carrinho-ingredientes {
+    position: absolute;
+    top: 91px;
+    left: 0;
+    width: 100%;
+    height: 302px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.item-carrinho {
+    width: 100%;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.item-ingrediente {
+    width: 233px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.item-descricao {
+    width: 225px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.item-quantidade {
+    width: 234px;
+    text-align: center;
+}
+
+.item-observacao {
+    width: 351px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.item-acao {
+    width: 161px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   LIXEIRA
+   ========================================================= */
+
+.btn-deletar {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-deletar img {
+    width: 26px;
+    height: 26px;
+    object-fit: cover;
+    display: block;
+}
+
+.btn-deletar:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   TOTAL
+   ========================================================= */
+
+.total {
+    position: absolute;
+    top: 393px;
+    left: 0;
+    width: 1207px;
+    height: 40px;
+    display: flex;
+    color: #fff;
+    font-size: 18px;
+}
+
+.total-child {
+    width: 191px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    background: linear-gradient(#0077ff,#0053b1);
+}
+
+.total-item {
+    width: 1016px;
+    height: 40px;
+    background: #303030;
+}
+
+.numero-total {
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   RESETAR
+   ========================================================= */
+
+.btn-resetar {
+    position: absolute;
+    right: 15px;
+    bottom: 8px;
+    height: 28px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 5px;
+    background: #d9534f;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.btn-resetar:hover {
+    background: #c9302c;
+}
+
+
+/* =========================================================
+   ROLAGEM
+   ========================================================= */
+
+.carrinho-ingredientes::-webkit-scrollbar {
+    width: 8px;
+}
+
+.carrinho-ingredientes::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 5px;
+}
+
+.carrinho-ingredientes::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* =========================================================
+   OBSERVAÇÕES
+   ========================================================= */
+
+.observacao-input {
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 5px;
+    background: #fff;
+    font: 14px 'Open Sans', Arial, sans-serif;
+    outline: none;
+}

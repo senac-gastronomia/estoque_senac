@@ -1,0 +1,209 @@
+/* =========================================================
+   ADICIONAR INGREDIENTES
+   ========================================================= */
+
+.adicionar-ingredientes {
+    width: 1250px;
+    height: 550px;
+    position: relative;
+    font: 16px 'Open Sans', Arial, sans-serif;
+    color: #000;
+    text-align: center;
+}
+
+.adicionar-ingredientes-child {
+    position: absolute;
+    inset: 0;
+    width: 1250px;
+    height: 550px;
+    background: #fff;
+    border: 2px solid rgba(0,0,0,.07);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.pesquisar {
+    position: absolute;
+    top: 27px;
+    left: 20px;
+    width: 1218px;
+    height: 38px;
+}
+
+.buscar-input {
+    width: 100%;
+    height: 38px;
+    padding: 0 55px 0 14px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 5px;
+    font: 14px 'Open Sans', Arial, sans-serif;
+    outline: none;
+}
+
+.buscar-input:focus {
+    border-color: #0077ff;
+}
+
+.image-50-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.tabela {
+    position: absolute;
+    top: 90px;
+    left: 18px;
+    width: 1218px;
+    height: 440px;
+    border: 2px solid rgba(0,0,0,.07);
+    border-radius: 5px;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.tabela-item {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 57px;
+    background: #f0f0f0;
+}
+
+
+/* Cabeçalhos */
+
+.cabecalho {
+    position: absolute;
+    top: 0;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 5;
+}
+
+.ingrediente-header { left: 0; width: 300px; }
+.descricao-header { left: 300px; width: 250px; }
+.quantidade-header { left: 550px; width: 350px; }
+.acao-header { left: 900px; width: 316px; }
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.lista-ingredientes {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    width: 100%;
+    height: 381px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.lista-ingredientes::-webkit-scrollbar {
+    width: 9px;
+}
+
+.lista-ingredientes::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 5px;
+}
+
+.lista-ingredientes::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Linhas */
+
+.linha-ingrediente {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid rgba(0,0,0,.07);
+    box-sizing: border-box;
+}
+
+.nome-ingrediente {
+    width: 300px;
+    padding-left: 35px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.descricao-ingrediente {
+    width: 250px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
+/* Quantidade */
+
+.quantidade-input {
+    width: 268px;
+    height: 36px;
+    margin-left: 40px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    font: 16px 'Open Sans', Arial, sans-serif;
+    outline: none;
+}
+
+.quantidade-input:focus {
+    border-color: #0077ff;
+}
+
+
+/* Botão + */
+
+.btn-adicionar {
+    position: absolute;
+    left: 1038px;
+    top: 4px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-adicionar img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    display: block;
+}
+
+.btn-adicionar:hover {
+    transform: scale(1.08);
+}
