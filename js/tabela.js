@@ -1,23 +1,22 @@
 const dadosSolicitacoes = [
-  { data: "23/06", aula: "Confeitaria", situacao: "Ingredientes reservados", classeStatus: "status-verde" },
-  { data: "24/06", aula: "Gastronomia Italiana", situacao: "Aguardando aprovação", classeStatus: "status-amarelo" },
-  { data: "25/06", aula: "Gastronomia Brasileira", situacao: "Fora de estoque", classeStatus: "status-vermelho" }
+  { data: "23/06", aula: "Confeitaria", situacao: "Ingredientes reservados", classeStatus: "green-text" },
+  { data: "24/06", aula: "Gastronomia Italiana", situacao: "Aguardando aprovação", classeStatus: "yellow-text" },
+  { data: "25/06", aula: "Gastronomia Brasileira", situacao: "Fora de estoque", classeStatus: "red-text" }
 ];
 
 function criarSecaoTabela() {
-  const container = document.createElement('div');
-  container.className = 'tabela-container';
+  const section = document.createElement('section');
+  section.className = 'table-section';
 
-  const headerBox = document.createElement('div');
-  headerBox.className = 'tabela-header-box';
-  headerBox.innerHTML = `
-    <img src="img/lista.png" alt="Ícone Tabela" class="tabela-header-icon-img" />
-    <span>Solicitações</span>
+  const headerDiv = document.createElement('div');
+  headerDiv.className = 'table-header';
+  headerDiv.innerHTML = `
+    <img src="img/lista.png" alt="Ícone Tabela" width="20" />
+    <h3>Solicitações</h3>
   `;
-  container.appendChild(headerBox);
+  section.appendChild(headerDiv);
 
   const tabela = document.createElement('table');
-  tabela.className = 'tabela-solicitacoes';
   tabela.innerHTML = `
     <thead>
       <tr>
@@ -35,27 +34,33 @@ function criarSecaoTabela() {
     tr.innerHTML = `
       <td>${item.data}</td>
       <td>${item.aula}</td>
-      <td><span class="${item.classeStatus}">${item.situacao}</span></td>
+      <td><span class="status ${item.classeStatus}">${item.situacao}</span></td>
     `;
     tbody.appendChild(tr);
   });
 
-  container.appendChild(tabela);
+  section.appendChild(tabela);
 
   const footerDiv = document.createElement('div');
-  footerDiv.className = 'tabela-footer';
+  footerDiv.className = 'table-footer';
+  
   const btnVerTodas = document.createElement('button');
-  btnVerTodas.className = 'btn-ver-todas';
   btnVerTodas.textContent = 'Ver todas as Solicitações';
   btnVerTodas.addEventListener('click', () => alert('A redirecionar...'));
 
   footerDiv.appendChild(btnVerTodas);
-  container.appendChild(footerDiv);
+  section.appendChild(footerDiv);
 
-  return container;
+  return section;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const targetContainer = document.getElementById('dashboard-container') || document.body;
-  targetContainer.appendChild(criarSecaoTabela());
+  const secaoGrafico = document.querySelector('.bottom-grid');
+  const containerPai = document.querySelector('.container') || document.body;
+
+  if (secaoGrafico) {
+    containerPai.insertBefore(criarSecaoTabela(), secaoGrafico);
+  } else {
+    containerPai.appendChild(criarSecaoTabela());
+  }
 });

@@ -1,4 +1,3 @@
-// Array com os dados dos cartões e os caminhos exatos para as imagens na pasta img/
 const dadosCartoes = [
   {
     titulo: "Produtos em estoque",
@@ -34,18 +33,16 @@ const dadosCartoes = [
   }
 ];
 
-/**
- * Cria e retorna o elemento HTML de um cartão de estatística
- */
+
 function criarCartaoStat({ titulo, valor, unidade, descricao, cor, icone }) {
   const card = document.createElement('div');
   card.className = 'stat-card';
   
-  // Define a cor da barra inferior dinamicamente
+ 
   card.style.setProperty('--card-color', cor);
   
-  // Define a cor de fundo do círculo com transparência
-  const fundoIcone = cor + '25'; // '25' adiciona transparência em Hexadecimal (~15%)
+
+  const fundoIcone = cor + '25'; 
 
   card.innerHTML = `
     <div class="stat-icon" style="background-color: ${fundoIcone};">
@@ -63,7 +60,7 @@ function criarCartaoStat({ titulo, valor, unidade, descricao, cor, icone }) {
   return card;
 }
 
-// Executa assim que o documento estiver pronto
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById('dashboard-container');
   

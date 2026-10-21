@@ -11,7 +11,6 @@
 <body>
   <div class="container">
     
-    <!-- Banner de Boas-Vindas -->
     <div class="apoio-welcome-banner">
       <span class="apoio-emoji">👋</span>
       <div>
@@ -20,12 +19,9 @@
       </div>
     </div>
 
-    <!-- Layout Principal em Grid (Esquerda vs Direita) -->
     <div class="apoio-main-layout">
       
-      <!-- Coluna Esquerda -->
       <div class="apoio-col-left">
-        <!-- Card Produtos em Estoque -->
         <div class="card card-orange">
           <div class="card-icon"><img src="img/caixa.png" alt="Caixa"></div>
           <div class="card-content">
@@ -35,7 +31,6 @@
           </div>
         </div>
 
-        <!-- Card Usuários Cadastrados -->
         <div class="card card-blue">
           <div class="card-icon"><img src="img/icone.png" alt="Usuários"></div>
           <div class="card-content">
@@ -44,7 +39,6 @@
           </div>
         </div>
 
-        <!-- Resumo do Mês -->
         <div class="summary-box">
           <div class="summary-title">
             <img src="img/lista.png" alt="Resumo">
@@ -65,9 +59,7 @@
         </div>
       </div>
 
-      <!-- Coluna Direita -->
       <div class="apoio-col-right">
-        <!-- Ações Rápidas -->
         <section class="quick-actions" style="margin-top: 0;">
           <h3>Ações rápidas</h3>
           <div class="actions-grid">
@@ -88,52 +80,15 @@
           </div>
         </section>
 
-        <!-- Gráfico: Ingredientes mais pedidos nesse mês -->
-        <div class="chart-box" style="margin-top: 0;">
-          <div class="chart-header">
-            <img src="img/grafico.png" alt="Gráfico" onerror="this.style.display='none'">
-            <h3>Ingredientes mais pedidos nesse mês</h3>
-          </div>
-          <div class="apoio-chart-body">
-            <div class="apoio-bar-col">
-              <span class="bar-val">18</span>
-              <div class="bar" style="height: 110px;"></div>
-              <span class="bar-label">Leite Integral</span>
-            </div>
-            <div class="apoio-bar-col">
-              <span class="bar-val">9</span>
-              <div class="bar" style="height: 55px;"></div>
-              <span class="bar-label">Farinha de trigo</span>
-            </div>
-            <div class="apoio-bar-col">
-              <span class="bar-val">21</span>
-              <div class="bar" style="height: 130px;"></div>
-              <span class="bar-label">Sal</span>
-            </div>
-            <div class="apoio-bar-col">
-              <span class="bar-val">2</span>
-              <div class="bar" style="height: 15px;"></div>
-              <span class="bar-label">Café</span>
-            </div>
-            <div class="apoio-bar-col">
-              <span class="bar-val">14</span>
-              <div class="bar" style="height: 85px;"></div>
-              <span class="bar-label">Açúcar</span>
-            </div>
-            <div class="apoio-bar-col">
-              <span class="bar-val">11</span>
-              <div class="bar" style="height: 70px;"></div>
-              <span class="bar-label">Fermento</span>
-            </div>
-          </div>
-        </div>
+        <!-- Onde o gráfico gerado por JS vai entrar automaticamente -->
+        <div id="grafico-container" style="margin-top: 0;"></div>
       </div>
 
     </div>
   </div>
 
-  <!-- Scripts Modulares -->
   <script src="js/navbar.js"></script>
+  <script src="js/grafico.js"></script>
 </body>
 
 </html>

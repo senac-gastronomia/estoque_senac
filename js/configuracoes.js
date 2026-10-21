@@ -60,7 +60,7 @@ function criarTelaConfiguracoes() {
         </div>
     `;
 
-    // Lógica ao clicar em Salvar
+
     const form = container.querySelector('#form-perfil');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -70,7 +70,7 @@ function criarTelaConfiguracoes() {
     return container;
 }
 
-// Inserir automaticamente no container principal
+
 document.addEventListener("DOMContentLoaded", () => {
     const main = document.querySelector('.container') || document.body;
     main.appendChild(criarTelaConfiguracoes());

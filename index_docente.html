@@ -10,13 +10,11 @@
 
 <body>
   <div class="container">
-    <!-- Cabeçalho -->
     <header class="header">
       <h1>Olá, Fulano!</h1>
       <p>Veja o resumo do estoque e de suas solicitações.</p>
     </header>
 
-    <!-- Cartões de Resumo -->
     <section class="cards-grid">
       <div class="card card-orange">
         <div class="card-icon"><img src="img/caixa.png" alt="Caixa"></div>
@@ -55,7 +53,6 @@
       </div>
     </section>
 
-    <!-- Ações Rápidas -->
     <section class="quick-actions">
       <h3>Ações rápidas</h3>
       <div class="actions-grid">
@@ -76,74 +73,14 @@
       </div>
     </section>
 
-    <!-- Tabela de Solicitações -->
-    <section class="table-section">
-      <div class="table-header">
-        <img src="img/lista.png" alt="Ícone Tabela">
-        <h3>Solicitações</h3>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Aula</th>
-            <th>Situação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>23/06</td>
-            <td>Confeitaria</td>
-            <td><span class="status green-text">Ingredientes reservados</span></td>
-          </tr>
-          <tr>
-            <td>24/06</td>
-            <td>Gastronomia Italiana</td>
-            <td><span class="status yellow-text">Aguardando aprovação</span></td>
-          </tr>
-          <tr>
-            <td>25/06</td>
-            <td>Gastronomia Brasileira</td>
-            <td><span class="status red-text">Fora de estoque</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="table-footer">
-        <button>Ver todas as Solicitações</button>
-      </div>
-    </section>
-
-    <!-- Secção Inferior (Gráfico e Resumo do Mês) -->
-    <section class="bottom-grid">
-      <div class="chart-box">
-        <div class="chart-header">
-          <img src="img/grafico.png" alt="Gráfico" onerror="this.style.display='none'">
-          <h3>Ingredientes mais pedidos nesse mês</h3>
-        </div>
-        <div class="chart-body">
-          <div class="bar" style="height: 60%;"></div>
-          <div class="bar" style="height: 90%;"></div>
-          <div class="bar" style="height: 20%;"></div>
-        </div>
-      </div>
-
-      <div class="summary-box">
-        <div class="summary-title">
-          <img src="img/lista.png" alt="Resumo">
-          <h3>Resumo do mês</h3>
-        </div>
-        <div class="summary-item">
-          <span><img src="img/lista.png" alt="Ícone"> Solicitações realizadas</span>
-          <strong>12</strong>
-        </div>
-      </div>
+    <section class="bottom-grid" id="dashboard-container">
     </section>
   </div>
 
-
+  <script src="js/resumo.js"></script>
   <script src="js/navbar.js"></script>
-  <script src="js/acoes.js"></script>
   <script src="js/tabela.js"></script>
+  <script src="js/grafico.js"></script>
 </body>
 
 </html>

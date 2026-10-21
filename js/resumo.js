@@ -1,44 +1,43 @@
 const dadosResumo = [
-  { titulo: "Solicitações realizadas", valor: 12, cor: "azul", icone: "img/lista.png" }, //[cite: 7]
-  { titulo: "Aprovadas", valor: 7, cor: "verde", icone: "img/certo.png" }, //[cite: 7]
-  { titulo: "Pendentes", valor: 5, cor: "amarelo", icone: "img/clock.png" } //[cite: 7]
+  { titulo: "Solicitações realizadas", valor: 12, cor: "azul", icone: "img/lista.png" },
+  { titulo: "Aprovadas", valor: 7, cor: "verde", icone: "img/certo.png" },
+  { titulo: "Pendentes", valor: 5, cor: "amarelo", icone: "img/clock.png" }
 ];
 
 function criarSecaoResumo() {
-  const container = document.createElement('div');
-  container.className = 'dashboard-card resumo-container';
+  const summaryBox = document.createElement('div');
+  summaryBox.className = 'summary-box';
 
-  const header = document.createElement('div');
-  header.className = 'card-header';
-  header.innerHTML = `
-    <img src="img/lista.png" alt="Resumo" class="card-icon-img" />
-    <span class="card-title">Resumo do mês</span>
+
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'summary-title';
+  titleDiv.innerHTML = `
+    <img src="img/lista.png" alt="Resumo" width="20" />
+    <h3>Resumo do mês</h3>
   `;
-  container.appendChild(header);
+  summaryBox.appendChild(titleDiv);
 
-  const listContainer = document.createElement('div');
-  listContainer.className = 'resumo-list';
 
   dadosResumo.forEach(item => {
-    const row = document.createElement('div');
-    row.className = 'resumo-item';
-    row.innerHTML = `
-      <div class="resumo-info">
-        <div class="resumo-icon-box ${item.cor}">
-          <img src="${item.icone}" alt="${item.titulo}" class="resumo-item-img" />
-        </div>
-        <span class="resumo-titulo ${item.cor}">${item.titulo}</span>
-      </div>
-      <span class="resumo-valor">${item.valor}</span>
+    const summaryItem = document.createElement('div');
+    summaryItem.className = 'summary-item';
+    summaryItem.innerHTML = `
+      <span>
+        <img src="${item.icone}" alt="Ícone" width="16" /> 
+        <span class="${item.cor}">${item.titulo}</span>
+      </span>
+      <strong>${item.valor}</strong>
     `;
-    listContainer.appendChild(row);
+    summaryBox.appendChild(summaryItem);
   });
 
-  container.appendChild(listContainer);
-  return container;
+  return summaryBox;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const targetContainer = document.getElementById('dashboard-container') || document.body;
-  targetContainer.appendChild(criarSecaoResumo());
+  const bottomGrid = document.querySelector('.bottom-grid');
+
+  if (bottomGrid) {
+    bottomGrid.appendChild(criarSecaoResumo());
+  }
 });
