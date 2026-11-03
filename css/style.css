@@ -9,6 +9,13 @@ body {
     background-color: #f4f4f4;
     color: #333;
     padding: 0;
+    margin-left: 250px !important;
+    transition: margin-left 0.3s ease !important;
+
+}
+
+body.sidebar-collapsed {
+    margin-left: 0px !important;
 }
 
 /* BARRA DE NAVEGAÇÃO */
@@ -1282,4 +1289,10 @@ td {
     background-color: #f2f9f2;
     border-color: #d2ecd2;
     color: #27ae60;
+}
+
+@media (max-width: 920px) {
+    body {
+        margin-left: 75px !important;
+    }
 }
