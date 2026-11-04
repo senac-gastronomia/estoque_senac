@@ -1,0 +1,30 @@
+{
+  "name": "estoque_senac-1",
+  "version": "1.0.0",
+  "description": "Sistema com proposito de controle e manuseio do estoque de ingredientes e alimentos para setor de compra, auxiliares e docentes do setor de Gastronomia, por conta de grande perda de ingredientes e comida pronta de aulas praticadas.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senac-gastronomia/estoque_senac.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/senac-gastronomia/estoque_senac/issues"
+  },
+  "homepage": "https://github.com/senac-gastronomia/estoque_senac#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  }
+}
