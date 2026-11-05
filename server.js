@@ -16,8 +16,8 @@ app.use("./src/view/pages", express.static("./src/view/pages"));
 app.use('/autenticacao', authRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile('tabela.html', {
-        root: './src/view/pages'
+    res.sendFile('relatoriosAuxiliar.html', {
+        root: './src/view/pages/auxiliar'
     });
 });
 
