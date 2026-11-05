@@ -29,7 +29,7 @@ html,
     width: 55%;
     /* Ocupa apenas o lado direito atrás do form */
     height: 100%;
-    background: url('/assets/img/fundo.png') no-repeat center center;
+    background: url('/public/assets/img/fundo.png') no-repeat center center;
     background-size: cover;
     z-index: 1;
 }

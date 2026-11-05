@@ -12,7 +12,7 @@ export function createLoginForm() {
     inpEmailLabel.setAttribute('for', 'inpEmail');
 
     const emailImg = document.createElement('img');
-    emailImg.src = '/assets/img/EmailIcon.png';
+    emailImg.src = '../../../public/assets/img/EmailIcon.png';
 
     const inpEmail = document.createElement('input');
     inpEmail.id = 'inpEmail';
@@ -33,7 +33,7 @@ export function createLoginForm() {
     inpSenhaLabel.setAttribute('for', 'inpSenha'); // Corrigido para 'inpSenha'
 
     const senhaImg = document.createElement('img');
-    senhaImg.src = '/assets/img/KeyWordIcon.png';
+    senhaImg.src = '../../../public/assets/img/KeyWordIcon.png';
 
     const inpSenha = document.createElement('input');
     inpSenha.id = 'inpSenha';
@@ -41,7 +41,7 @@ export function createLoginForm() {
     inpSenha.placeholder = 'Digite sua senha';
 
     const senhaOlhoImg = document.createElement('img');
-    senhaOlhoImg.src = '/assets/img/EyeIcon.png'; // Preenchido o ícone do olho
+    senhaOlhoImg.src = '../../../public/assets/img/EyeIcon.png'; // Preenchido o ícone do olho
 
     areaSenha.appendChild(inpSenhaLabel);
     areaSenha.appendChild(senhaImg);
@@ -60,11 +60,46 @@ export function createLoginForm() {
     btnEntrar.textContent = 'Entrar';
     btnEntrar.type = 'submit';
 
+    formLogin.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = inpEmail.value.trim()
+        const senha = inpSenha.value.trim()
+        const usuario = {
+            email,
+            senha
+        }
+        try {
+            const resultado = await fetch("http://localhost:3000/autenticacao/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(usuario)
+                }
+            );
+            const confirmacao = await resultado.json();
+            if (!resultado.ok) {
+                alert("Login realizado com sucesso!")
+            } else {
+                alert("Conta inexstente!");
+            } return confirmacao;
+        }
+        catch {
+            console.error(erro)
+            console.error(erro);
+            alert("Erro ao cadastrar!");
+
+        }
+    })
+
     // --- Montagem do Formulário ---
     formLogin.appendChild(areaEmail);
     formLogin.appendChild(areaSenha);
     formLogin.appendChild(esqueciSenha);
     formLogin.appendChild(btnEntrar);
+
+    
 
     return formLogin;
 }

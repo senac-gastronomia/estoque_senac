@@ -1,3 +1,5 @@
+import { createLoginForm } from '../components/form.js';
+
 //pega a div app do html
 const app = document.getElementById('app');
 
@@ -29,7 +31,7 @@ textLogo2.innerHTML = '<b class = "textLogoB">ESTOQUE</b> QUE ORGANIZA';
 //logo do senac
 const senacLogo = document.createElement('img');
 senacLogo.className = 'senacLogo'
-senacLogo.src = '/assets/img/SenacLogo.png';
+senacLogo.src = '../../../public/assets/img/SenacLogo.png';
 
 // card escrito Estoque
 const estoqueCard = document.createElement('div');
@@ -41,7 +43,7 @@ estoqueImgContainer.className = 'imgContainer';
 
 // img de caixa no card estoque
 const estoqueImg = document.createElement('img');
-estoqueImg.src = '/assets/img/caixaCardEstoque.png';
+estoqueImg.src = '../../../public/assets/img/caixaCardEstoque.png';
 
 // texto do card estoque
 const estoqueText = document.createElement('p');
@@ -53,7 +55,7 @@ suportContainer.className = 'suportContainer';
 const suportContainerImg = document.createElement('div');
 suportContainerImg.className = 'suportContainerImg'
 const suportImg = document.createElement('img');
-suportImg.src = '/assets/img/suport.png'
+suportImg.src = '../../../public/assets/img/suport.png'
 
 const suportTxt1 = document.createElement('b');
 suportTxt1.textContent = 'Precisa de ajuda?';
@@ -84,6 +86,7 @@ containerLeft.appendChild(estoqueCard);
 estoqueCard.appendChild(estoqueImgContainer);
 // coloca a img de caixa no container para ela
 estoqueImgContainer.appendChild(estoqueImg);
+estoqueCard.appendChild(estoqueText);
 
 containerLeft.appendChild(suportContainer);
 suportContainer.appendChild(suportContainerImg);
@@ -92,7 +95,6 @@ suportContainer.appendChild(suportTxt1);
 suportContainer.appendChild(suportTxt2);
 
 
-//-----------------------------------------------------------------
 
 // container da parte direita da tela
 const containerRight = document.createElement('div');
@@ -102,13 +104,13 @@ containerRight.className = 'containerRight';
 const loginContainer = document.createElement('div');
 loginContainer.className = 'loginContainer';
 
-//container da img
+// container da img
 const loginImgContainer = document.createElement('div');
 loginImgContainer.className = 'loginImgContainer';
 
 // img do login
 const loginImg = document.createElement('img');
-loginImg.src = '/assets/img/login.png';
+loginImg.src = '../../../public/assets/img/login.png';
 
 const LoginTxt = document.createElement('div');
 LoginTxt.className = 'LoginTxt';
@@ -121,86 +123,31 @@ const subTitulo = document.createElement('h3');
 subTitulo.className = 'subTitulo';
 subTitulo.innerHTML = 'Entre com suas <p class="subTituloP">credenciais</p> para continuar';
 
-const formLogin = document.createElement('form');
-formLogin.className = 'formLogin';
-
-//Email
-const areaEmail = document.createElement('div');
-areaEmail.className = 'areaEmail';
-
-const inpEmailLabel = document.createElement('label');
-inpEmailLabel.className = 'inpEmailLabel';
-inpEmailLabel.innerHTML = '<h2>E-mail</h2>';
-inpEmailLabel.setAttribute('for', 'inpEmail');
-
-const inpEmail = document.createElement('input');
-inpEmail.id = 'inpEmail';
-inpEmail.type = 'email';
-inpEmail.placeholder = 'Digite seu e-mail';
-
-const emailImg = document.createElement('img');
-emailImg.src = '/assets/img/EmailIcon.png';
-
-// Senha
-
-const areaSenha = document.createElement('div');
-areaSenha.className = 'areaEmail';
-
-const inpSenhaLabel = document.createElement('label');
-inpSenhaLabel.className = 'inpEmailLabel';
-inpSenhaLabel.innerHTML = '<h2>E-mail</h2>';
-inpSenhaLabel.setAttribute('for', 'inpEmail');
-
-const inpSenha = document.createElement('input');
-inpSenha.id = 'inpSenha';
-inpSenha.type = 'password';
-inpSenha.placeholder = 'Digite sua senha';
-
-const senhaImg = document.createElement('img');
-senhaImg.src = '/assets/img/KeyWordIcon.png';
-
-const senhaOlhoImg = document.createElement('img');
-senhaOlhoImg.src = '/assets/img/'//falta o icone do olho
-
-const esqueciSenha = document.createElement('a');
-esqueciSenha.className = 'esqueciSenha';
-esqueciSenha.textContent = 'Esqueci minha senha';
-esqueciSenha.href = '#'// nao tem continuação ainda
-
-const btnEntrar = document.createElement('input');
-btnEntrar.className = 'btnEntrar';
-btnEntrar.textContent = 'Entrar';
-btnEntrar.type = 'submit';
-
-
 const alertaExclusivo = document.createElement('div');
 alertaExclusivo.className = 'alertaExclusivo';
 
 const imgAlerta = document.createElement('img');
-imgAlerta.src = '/assets/img/escudoicon.png';
+imgAlerta.src = '../../../public/assets/img/escudoicon.png';
 
-const alertaTxt = document.createElement('P');
+const alertaTxt = document.createElement('p');
 alertaTxt.textContent = 'Acesso exclusivo para colaboradores.';
 
+// --- Montagem da Tela da Direita ---
 divison.appendChild(containerRight);
 containerRight.appendChild(loginContainer);
+
+// 1. Adiciona a imagem e os textos
 loginContainer.appendChild(loginImgContainer);
 loginImgContainer.appendChild(loginImg);
 loginImgContainer.appendChild(LoginTxt);
 LoginTxt.appendChild(titulo);
 LoginTxt.appendChild(subTitulo);
-loginContainer.appendChild(formLogin);
-formLogin.appendChild(areaEmail);
-areaEmail.appendChild(inpEmailLabel);
-areaEmail.appendChild(emailImg);
-areaEmail.appendChild(inpEmail);
 
-formLogin.appendChild(areaSenha);
-areaSenha.appendChild(senhaImg);
-areaSenha.appendChild(inpSenha);
-areaSenha.appendChild(senhaOlhoImg);
-loginContainer.appendChild(esqueciSenha);
-formLogin.appendChild(btnEntrar);
-loginContainer.appendChild(alertaExclusivo)
+// 2. Chama o componente do formulário e injeta na tela
+const formLoginComponent = createLoginForm();
+loginContainer.appendChild(formLoginComponent);
+
+// 3. Adiciona o alerta no final
+loginContainer.appendChild(alertaExclusivo);
 alertaExclusivo.appendChild(imgAlerta);
 alertaExclusivo.appendChild(alertaTxt);
