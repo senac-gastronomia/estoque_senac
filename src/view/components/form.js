@@ -69,7 +69,7 @@ export function createLoginForm() {
             senha
         }
         try {
-            const resultado = await fetch("http://localhost:3000/autenticacao/login",
+            const resultado = await fetch("http://localhost:3600/autenticacao/login",
                 {
                     method: "POST",
                     headers: {
@@ -80,9 +80,9 @@ export function createLoginForm() {
             );
             const confirmacao = await resultado.json();
             if (!resultado.ok) {
-                alert("Login realizado com sucesso!")
+                alert("Conta inexstente!")
             } else {
-                alert("Conta inexstente!");
+                alert("Login realizado com sucesso!");
             } return confirmacao;
         }
         catch {

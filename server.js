@@ -49,6 +49,10 @@ app.get('/', (req, res) => {
     res.status(404).send('Aqui será a tela inicial.');
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'view', 'login.html'));
+});
+
 app.get('/apoio', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'view', 'apoio.html'));
 });
@@ -75,4 +79,4 @@ app.use((req, res) => {
 });
 
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor rodando na porta http://localhost:${PORT}`));
