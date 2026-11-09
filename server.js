@@ -37,7 +37,7 @@ app.get('/interface-config', (req, res) => {
 
 app.use(express.json());
 app.use(express.static("./src/view"));
-app.use("/src/view", express.static("./src/view/pages"));
+app.use("/src/view", express.static("./src/view"));
 
 app.use('/autenticacao', authRoutes);
 
@@ -54,7 +54,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/apoio', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'view', 'apoio.html'));
+    res.sendFile(path.join(__dirname, 'src', 'view', 'apoio.dashboard.html'));
 });
 
 app.get('/apoio_cadastro', (req, res) => {
@@ -62,7 +62,7 @@ app.get('/apoio_cadastro', (req, res) => {
 });
 
 app.get('/docente', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'view', 'docente.html'));
+    res.sendFile(path.join(__dirname, 'src', 'view', 'docente.dashboard.html'));
 });
 
 app.get('/configuracoes', (req, res) => {
@@ -70,7 +70,11 @@ app.get('/configuracoes', (req, res) => {
 });
 
 app.get('/turma', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'view', 'turma.html'));
+    res.sendFile(path.join(__dirname, 'src', 'view', 'nova.solicitacao.html'));
+});
+
+app.get('/auxiliar', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'view', 'auxiliar.dashboard.html'));
 });
 
 // Página de Erro 404 (Caso a rota não exista)

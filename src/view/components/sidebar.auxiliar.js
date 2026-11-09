@@ -1,10 +1,11 @@
 const menuItems = [
-  { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: '/src/view/pages/index_auxiliar.html' },
+  { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: '/src/view/auxiliar.dashboard.html' },
   { icon: '/public/assets/estoque.png', alt: 'Estoque Icon', text: 'Estoque', className: '' },
+  { icon: '/public/assets/adicionar.caixa.png', alt: 'Adicionar Caixa Icon', text: 'Adicionar Produto', className: '', url: '/src/view/nova.solicitacao.html' },
   { icon: '/public/assets/carrinho_deposito.png', alt: 'Inventario Icon', text: 'Inventário', className: '' },
   { icon: '/public/assets/icons8-clipboard-50.png', alt: 'Solicitacoes Icon', text: 'Solicitações', className: '' },
   { icon: '/public/assets/icons8-graph-axes-24.png', alt: 'Relatório Icon', text: 'Relatório', className: '' },
-  { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/pages/configuracoes.html' }
+  { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/configuracoes.html' }
 ];
 
 const aside = document.createElement('aside');
@@ -25,15 +26,15 @@ const nav = document.createElement('nav');
 menuItems.forEach(item => {
   const button = document.createElement('button');
   if (item.className) button.className = item.className;
-  
+
   if (item.url) {
     button.addEventListener('click', () => {
       window.location.href = item.url;
     });
   }
-  
+
   const outerSpan = document.createElement('span');
-  
+
   const img = document.createElement('img');
   img.src = item.icon;
   img.alt = item.alt;
@@ -44,7 +45,7 @@ menuItems.forEach(item => {
   outerSpan.appendChild(img);
   outerSpan.appendChild(textSpan);
   button.appendChild(outerSpan);
-  
+
   nav.appendChild(button);
 });
 
@@ -53,7 +54,7 @@ footer.className = 'sidebar-footer';
 
 const chapeuImg = document.createElement('img');
 chapeuImg.className = 'chapeu-img';
-chapeuImg.src = '/public/assets/icons8-chapéu-de-chef-90.png'; 
+chapeuImg.src = '/public/assets/icons8-chapéu-de-chef-90.png';
 chapeuImg.alt = 'Chapéu Chef';
 
 const infoDiv = document.createElement('div');

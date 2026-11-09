@@ -1,8 +1,8 @@
 const menuItems = [
-  { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: '/src/view/pages/index_docente.html' },
-  { icon: '/public/assets/inbox.png', alt: 'Solicitacao Icon', text: 'Nova solicitação', className: ''},
-  { icon: '/public/assets/icons8-clipboard-50.png', alt: 'Meus pedidos Icon', text: 'Meus pedidos', className: '', url: '/src/view/pages/apoio.html' },
-  { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/pages/configuracoes.html' }
+  { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: '/src/view/docente.dashboard.html' },
+  { icon: '/public/assets/inbox.png', alt: 'Solicitacao Icon', text: 'Nova solicitação', className: '', url: '/src/view/selecionar.turma.html'},
+  { icon: '/public/assets/icons8-clipboard-50.png', alt: 'Meus pedidos Icon', text: 'Meus pedidos', className: '', url: '/src/view/apoio.html' },
+  { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/configuracoes.html' }
 ];
 
 const aside = document.createElement('aside');
