@@ -12,15 +12,9 @@ Figma de WireFrame de Estoque da Ilma: https://www.figma.com/design/Y68EOPmvaA1e
 
 ## Componente da tabela de solicitação
 
-A tela em `tabelaCarrinho/` registra o Web Component `<tabela-carrinho>`, implementado em JavaScript sem framework. Ele cria tabelas HTML reais (`table`, `thead`, `tbody`, `tr`, `th` e `td`) e não vem com ingredientes predefinidos.
+O Web Component `<tabela-carrinho>` fica em `src/view/components/tabela.js` e é usado pela página auxiliar em `src/view/auxiliar/relatoriosAuxiliar.html`. A página carrega o inicializador como módulo, que registra e valida o componente.
 
-Para usar o componente em outra página, inclua o CSS e o JavaScript e coloque `<tabela-carrinho></tabela-carrinho>` no HTML. Depois, forneça os ingredientes:
-
-```html
-<link rel="stylesheet" href="tabelaCarrinho/tabela-carrinho.css">
-<script src="tabelaCarrinho/tabela.js" defer></script>
-<tabela-carrinho></tabela-carrinho>
-```
+O componente não carrega ingredientes por conta própria. A página que o integra deve atribuir a propriedade `ingredients`, contendo objetos com `ingrediente` e, opcionalmente, `descricao`:
 
 ```js
 const tabela = document.querySelector("tabela-carrinho");
@@ -34,4 +28,4 @@ tabela.addEventListener("items-change", event => {
 });
 ```
 
-Cada ingrediente usa `ingrediente` e `descricao`. Os itens da solicitação usam `ingrediente`, `descricao`, `quantidade` e `observacao`. O evento `items-change` é emitido quando os itens são adicionados, removidos, limpos ou quando uma observação muda; a tela que consome o componente pode usar esse evento para integrar a persistência do backend.
+`items-change` borbulha a partir do componente e traz os itens em `event.detail.items`. Cada item contém `ingrediente`, `descricao`, `quantidade` e `observacao`. A tela consumidora pode usar esse evento para integrar a persistência; a API de ingredientes e solicitações ainda precisa ser definida antes de implementar essa integração com o backend.

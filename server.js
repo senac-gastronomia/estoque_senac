@@ -9,15 +9,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("./src/view/"));
+app.use(express.static("./src/view"));
 app.use(express.json());
-app.use("./src/view/pages", express.static("./src/view/pages"));
 
 app.use('/autenticacao', authRoutes);
 
 app.get('/', (req, res) => {
     res.sendFile('relatoriosAuxiliar.html', {
-        root: './src/view/pages/auxiliar'
+        root: './src/view/auxiliar'
     });
 });
 
