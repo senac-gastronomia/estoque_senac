@@ -1,3 +1,5 @@
+// import criarInputSenha from "../utils/senhaVisibilidade.js";
+
 export function createLoginForm() {
     const formLogin = document.createElement('form');
     formLogin.className = 'formLogin';
@@ -39,14 +41,20 @@ export function createLoginForm() {
     inpSenha.id = 'inpSenha';
     inpSenha.type = 'password';
     inpSenha.placeholder = 'Digite sua senha';
+    inpSenha.required = 'true';
+    // const campoSenha = criarInputSenha(inpSenha, icons); 
+
+
 
     const senhaOlhoImg = document.createElement('img');
     senhaOlhoImg.src = '../../../public/assets/img/EyeIcon.png'; // Preenchido o ícone do olho
 
     areaSenha.appendChild(inpSenhaLabel);
     areaSenha.appendChild(senhaImg);
-    areaSenha.appendChild(inpSenha);
+    areaSenha.appendChild(inpSenha)
+    // areaSenha.appendChild(campoSenha);
     areaSenha.appendChild(senhaOlhoImg);
+
 
     // --- Componente: Esqueci minha senha ---
     const esqueciSenha = document.createElement('a');
@@ -80,9 +88,9 @@ export function createLoginForm() {
             );
             const confirmacao = await resultado.json();
             if (!resultado.ok) {
-                alert("Login realizado com sucesso!")
+                alert("Conta inexstente!")
             } else {
-                alert("Conta inexstente!");
+                alert("Login realizado com sucesso!");
             } return confirmacao;
         }
         catch {
@@ -99,7 +107,7 @@ export function createLoginForm() {
     formLogin.appendChild(esqueciSenha);
     formLogin.appendChild(btnEntrar);
 
-    
+
 
     return formLogin;
 }
