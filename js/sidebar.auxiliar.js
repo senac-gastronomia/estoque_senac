@@ -1,4 +1,3 @@
-// 1. Array de dados com os botões da navegação
 const menuItems = [
   { icon: '/img/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: 'index_auxiliar.html' },
   { icon: '/img/estoque.png', alt: 'Estoque Icon', text: 'Estoque', className: '' },
@@ -8,7 +7,7 @@ const menuItems = [
   { icon: '/img/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: 'configuracoes.html' }
 ];
 
-// 2. Criar os elementos principais
+
 const aside = document.createElement('aside');
 aside.className = 'sidebar';
 
@@ -22,10 +21,10 @@ logo.alt = 'Logo Senac';
 
 header.appendChild(logo);
 
-// 3. Criar a tag <nav>
+
 const nav = document.createElement('nav');
 
-// 4. Iterar sobre os itens do menu e criar os botões
+
 menuItems.forEach(item => {
   const button = document.createElement('button');
   if (item.className) button.className = item.className;
@@ -46,7 +45,7 @@ menuItems.forEach(item => {
   nav.appendChild(button);
 });
 
-// 5. Criar o rodapé (Footer com o chapéu de chef e informações)
+
 const footer = document.createElement('div');
 footer.className = 'sidebar-footer';
 
@@ -74,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => {
       aside.classList.toggle('collapsed');
       
-      // Alterna a classe de expansão no body para ajustar o layout inteiro
       document.body.classList.toggle('sidebar-collapsed');
     });
   }
@@ -87,10 +85,10 @@ infoDiv.appendChild(span3);
 footer.appendChild(chapeuImg);
 footer.appendChild(infoDiv);
 
-// 6. Unir tudo dentro da tag <aside>
+
 aside.appendChild(header);
 aside.appendChild(nav);
 aside.appendChild(footer);
 
-// 7. Inserir no HTML (no body)
+
 document.body.appendChild(aside);

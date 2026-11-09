@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="/src/view/css/style.css">
+  <link rel="stylesheet" href="/src/view/css/sidebar.css">
+</head>
+
+<body>
+  <div class="container"
+    style="display: flex; flex-direction: column; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+    <header class="header" style="margin-bottom: 10px;">
+      <h1 style="display: flex; align-items: center; gap: 8px; font-size: 22px; color: #111;">
+        Olá, Docente!
+      </h1>
+      <p style="color: #666; font-size: 13px; margin-top: 4px;">Veja o resumo do estoque de hoje</p>
+    </header>
+
+    <section id="dashboard-container"></section>
+
+    <section id="alertas-container"></section>
+
+  </div>
+
+  <script src="/src/view/components/auxiliar.cards.js"></script>
+  <script src="/src/view/components/alerta.card.js"></script>
+
+  <script src="/src/view/components/navbar.js"></script>
+  <script src="/src/view/components/sidebar.auxiliar.js"></script>
+</body>
+
+</html>

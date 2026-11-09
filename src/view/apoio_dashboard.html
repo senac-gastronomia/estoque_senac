@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Apoio - Controle de Estoque</title>
+    <link rel="stylesheet" href="/src/view/css/style.css">
+    <link rel="stylesheet" href="/src/view/css/sidebar.css">
+</head>
+
+<body>
+  <div class="container apoio-layout">
+
+    <div class="coluna-esquerda">
+      <section id="dashboard-container"></section>
+      <section id="resumo-container"></section>
+    </div>
+
+    <div class="coluna-direita">
+      <header class="header"
+        style="background: white; padding: 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; justify-content: center;">
+        <div>
+          <h1 style="margin: 0; font-size: 20px;">Olá, Beltrano!</h1>
+          <p style="margin: 0; color: #666; font-size: 14px;">Veja o resumo da cozinha Senac</p>
+        </div>
+      </header>
+
+      <section id="acoes-rapidas-container"></section>
+      <section id="grafico-container"></section>
+    </div>
+
+  </div>
+
+  <script src="/src/view/components/apoio.cards.js"></script>
+  <script src="/src/view/components/resumo.js"></script>
+  <script src="/src/view/components/acoes.rapidas.js"></script>
+  <script src="/src/view/components/navbar.js"></script>
+  <script src="/src/view/components/grafico.js"></script>
+  <script src="/src/view/components/sidebar.apoio.js"></script>
+</body>
+
+</html>

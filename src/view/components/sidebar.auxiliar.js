@@ -1,4 +1,3 @@
-// 1. Array de dados com os botões da navegação
 const menuItems = [
   { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: '/src/view/pages/index_auxiliar.html' },
   { icon: '/public/assets/estoque.png', alt: 'Estoque Icon', text: 'Estoque', className: '' },
@@ -8,9 +7,8 @@ const menuItems = [
   { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/pages/configuracoes.html' }
 ];
 
-// 2. Criar os elementos principais
 const aside = document.createElement('aside');
-aside.className = 'sidebar';
+aside.className = 'sidebar collapsed';
 
 const header = document.createElement('header');
 header.className = 'sidebar-header';
@@ -22,13 +20,17 @@ logo.alt = 'Logo Senac';
 
 header.appendChild(logo);
 
-// 3. Criar a tag <nav>
 const nav = document.createElement('nav');
 
-// 4. Iterar sobre os itens do menu e criar os botões
 menuItems.forEach(item => {
   const button = document.createElement('button');
   if (item.className) button.className = item.className;
+  
+  if (item.url) {
+    button.addEventListener('click', () => {
+      window.location.href = item.url;
+    });
+  }
   
   const outerSpan = document.createElement('span');
   
@@ -46,7 +48,6 @@ menuItems.forEach(item => {
   nav.appendChild(button);
 });
 
-// 5. Criar o rodapé (Footer com o chapéu de chef e informações)
 const footer = document.createElement('div');
 footer.className = 'sidebar-footer';
 
@@ -67,19 +68,6 @@ span2.textContent = 'Unidade: Senac Sorocaba';
 const span3 = document.createElement('span');
 span3.textContent = 'Setor: Cozinha Pedagógica';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.navbar-menu-btn');
-
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      aside.classList.toggle('collapsed');
-      
-      // Alterna a classe de expansão no body para ajustar o layout inteiro
-      document.body.classList.toggle('sidebar-collapsed');
-    });
-  }
-});
-
 infoDiv.appendChild(span1);
 infoDiv.appendChild(span2);
 infoDiv.appendChild(span3);
@@ -87,10 +75,28 @@ infoDiv.appendChild(span3);
 footer.appendChild(chapeuImg);
 footer.appendChild(infoDiv);
 
-// 6. Unir tudo dentro da tag <aside>
 aside.appendChild(header);
 aside.appendChild(nav);
 aside.appendChild(footer);
 
-// 7. Inserir no HTML (no body)
 document.body.appendChild(aside);
+
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.querySelector('.navbar-menu-btn');
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      aside.classList.toggle('collapsed');
+      overlay.classList.toggle('active');
+    });
+  }
+
+  overlay.addEventListener('click', () => {
+    aside.classList.add('collapsed');
+    overlay.classList.remove('active');
+  });
+});

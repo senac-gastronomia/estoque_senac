@@ -1,7 +1,7 @@
 const dadosResumo = [
-  { titulo: "Solicitações realizadas", valor: 12, cor: "azul", icone: "img/lista.png" },
-  { titulo: "Aprovadas", valor: 7, cor: "verde", icone: "img/certo.png" },
-  { titulo: "Pendentes", valor: 5, cor: "amarelo", icone: "img/clock.png" }
+  { titulo: "Solicitações realizadas", valor: 12, cor: "azul", icone: "/public/assets/resumo.png" },
+  { titulo: "Aprovadas", valor: 7, cor: "verde", icone: "/public/assets/certo.png" },
+  { titulo: "Pendentes", valor: 5, cor: "amarelo", icone: "/public/assets/clock.png" }
 ];
 
 function criarSecaoResumo() {
@@ -35,9 +35,11 @@ function criarSecaoResumo() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const bottomGrid = document.querySelector('.bottom-grid');
+  const container = document.getElementById('resumo-container');
 
-  if (bottomGrid) {
-    bottomGrid.appendChild(criarSecaoResumo());
+  if (container) {
+    container.appendChild(criarSecaoResumo());
+  } else {
+    console.error("Container de resumo não encontrado no HTML!");
   }
 });

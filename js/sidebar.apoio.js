@@ -1,12 +1,10 @@
-// 1. Array de dados com os botões e os caminhos corretos para os arquivos HTML do Docente
 const menuItems = [
   { icon: '/img/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: 'index_docente.html' },
   { icon: '/img/icons8-clipboard-50.png', alt: 'Pedidos Icon', text: 'Pedidos', className: '', url: 'apoio.html' },
-  { icon: '/img/grupo-auxiliar.png', alt: 'Usuarios Icon', text: 'Usuários', className: '', url: 'usuarios.html' }, // Ajuste o nome da página de usuários se necessário
+  { icon: '/img/grupo-auxiliar.png', alt: 'Usuarios Icon', text: 'Usuários', className: '', url: 'usuarios.html' },
   { icon: '/img/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: 'configuracoes.html' }
 ];
 
-// 2. Criar os elementos principais
 const aside = document.createElement('aside');
 aside.className = 'sidebar';
 
@@ -20,15 +18,12 @@ logo.alt = 'Logo Senac';
 
 header.appendChild(logo);
 
-// 3. Criar a tag <nav>
 const nav = document.createElement('nav');
 
-// 4. Iterar sobre os itens do menu, criar os botões e adicionar o evento de redirecionamento
 menuItems.forEach(item => {
   const button = document.createElement('button');
   if (item.className) button.className = item.className;
-  
-  // Evento de clique para levar para a respetiva página (evita erro se a url estiver vazia)
+
   button.addEventListener('click', () => {
     if (item.url) {
       window.location.href = item.url;
@@ -53,7 +48,6 @@ menuItems.forEach(item => {
   nav.appendChild(button);
 });
 
-// 5. Criar o rodapé (Footer com o chapéu de chef e informações)
 const footer = document.createElement('div');
 footer.className = 'sidebar-footer';
 
@@ -81,24 +75,28 @@ infoDiv.appendChild(span3);
 footer.appendChild(chapeuImg);
 footer.appendChild(infoDiv);
 
-// 6. Unir tudo dentro da tag <aside>
 aside.appendChild(header);
 aside.appendChild(nav);
 aside.appendChild(footer);
 
-// 7. Inserir no HTML (no body)
 document.body.appendChild(aside);
 
-// 8. Lógica do botão de abrir/fechar a sidebar (executada após o DOM carregar)
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.navbar-menu-btn');
 
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {
       aside.classList.toggle('collapsed');
-      
-      // Alterna a classe de expansão no body para ajustar o layout inteiro
-      document.body.classList.toggle('sidebar-collapsed');
+      overlay.classList.toggle('active');
     });
   }
+
+  overlay.addEventListener('click', () => {
+    aside.classList.add('collapsed');
+    overlay.classList.remove('active');
+  });
 });
