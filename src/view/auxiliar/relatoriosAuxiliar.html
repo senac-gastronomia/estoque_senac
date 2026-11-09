@@ -1,23 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Relatório Auxiliar</title>
-    <link rel="stylesheet" href="../css/tabela-carrinho.css">
-    <style>
-        body {
-            min-height: 100vh;                                  
-            margin: 0;
-            padding: 24px;
-                box-sizing: border-box;
-                background: url("../assets/img.fundo.png") center / cover fixed no-repeat;
-        }
-    </style>
-</head>
-<body>
-    <tabela-carrinho></tabela-carrinho>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="../components/tabela.js" defer></script>
+    <title>Relatórios</title>
+
+    <link rel="stylesheet" href="../css/tabelaRelatorios.css">
+</head>
+
+<body>
+
+    <main class="reports-page">
+
+        <!-- Cabeçalho -->
+        <header class="page-header">
+            <h1>Relatórios</h1>
+            <p>Consulte os relatórios do mês aqui</p>
+        </header>
+
+
+        <!-- PRIMEIRA LINHA -->
+        <section class="reports-grid">
+
+            <!-- Gráfico de entrada e saída -->
+            <article class="report-card movement-chart">
+
+                <div class="card-header">
+                    <h3>
+                        <span class="green-icon">↗</span>
+                        Gráfico de entrada e saída
+                    </h3>
+
+                    <div class="chart-legend">
+                        <span><i class="dot entry"></i> Entrada</span>
+                        <span><i class="dot exit"></i> Saída</span>
+                    </div>
+                </div>
+
+                <div class="chart-placeholder">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">⬡</span>
+                        <p>Área do gráfico de movimentação</p>
+                        <small>Nenhum dado para exibir no momento</small>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- Distribuição -->
+            <article class="report-card distribution-card">
+
+                <div class="card-header">
+                    <h3>Distribuição de Relatório</h3>
+                </div>
+
+                <div class="distribution-placeholder">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">⬡</span>
+                        <p>Gráfico de distribuição</p>
+                        <small>
+                            Os indicadores aparecerão aqui após o carregamento dos dados
+                        </small>
+                    </div>
+                </div>
+
+                <div class="distribution-legend">
+                    <span class="legend-tag entry-tag">Entrada</span>
+                    <span class="legend-tag exit-tag">Saída</span>
+                    <span class="legend-tag discard-tag">Descarte</span>
+                </div>
+
+            </article>
+
+
+            <!-- SEGUNDA LINHA -->
+
+            <!-- Movimentações recentes -->
+            <article class="report-card recent-movements">
+
+                <div class="section-title">
+                    <h2>
+                        <span class="orange-icon">→</span>
+                        Movimentações recentes
+                    </h2>
+                </div>
+
+                <!-- A tabela será renderizada pelo componente -->
+                <div id="movements-table"></div>
+
+                <div class="table-footer">
+                    <a href="#">Ver todas as movimentações</a>
+                </div>
+
+            </article>
+
+
+            <!-- Produtos mais utilizados -->
+            <article class="report-card products-card">
+
+                <div class="products-header">
+
+                    <h2>
+                        <span class="orange-icon">▥</span>
+                        Produtos Mais Utilizados
+                    </h2>
+
+                    <select id="period-filter">
+                        <option value="week">Esta semana</option>
+                        <option value="month">Este mês</option>
+                        <option value="year">Este ano</option>
+                    </select>
+
+                </div>
+
+                <div class="products-placeholder">
+                    <span class="placeholder-icon">▤</span>
+                    <p>Sem dados de utilização</p>
+                </div>
+
+                <button class="complete-report-btn">
+                    Ver relatório completo
+                </button>
+
+            </article>
+
+        </section>
+
+
+        <!-- BOTÃO DE DOWNLOAD -->
+        <div class="download-area">
+
+            <button id="download-report" class="download-btn">
+                Baixar relatório
+                <span>⇩</span>
+            </button>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="../pages/auxiliar/relatoriosAuxiliar.js"></script>
+
 </body>
 </html>
