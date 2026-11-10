@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+ 
 body,
 html,
 #app {
@@ -14,14 +14,14 @@ html,
     overflow: hidden;
     background-color: #f4f4f4;
 }
-
+ 
 /* --- 2. ESTRUTURA PRINCIPAL E FUNDO --- */
 .loginScreen {
     position: relative;
     width: 100%;
     height: 100%;
 }
-
+ 
 .background {
     position: absolute;
     top: 0;
@@ -33,14 +33,14 @@ html,
     background-size: cover;
     z-index: 1;
 }
-
+ 
 .division {
     display: flex;
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 2;
-
+ 
     /* --- 3. LADO ESQUERDO (BRANCO) --- */
     .containerLeft {
         width: 45%;
@@ -53,30 +53,30 @@ html,
         padding: 40px 60px;
         box-shadow: 10px 0 25px rgba(0, 0, 0, 0.05);
         z-index: 3;
-
+ 
         .logoSenacContainer {
             text-align: center;
             margin-top: 40px;
-
+ 
             .senacLogo {
                 width: 280px;
                 margin-bottom: 15px;
             }
-
+ 
             p {
                 font-size: 14px;
                 color: #555;
                 letter-spacing: 0.5px;
                 margin-bottom: 4px;
             }
-
+ 
             .textLogoB {
                 color: #004587;
                 /* Azul Senac */
                 font-weight: 800;
             }
         }
-
+ 
         /* Card Estoque */
         .estoqueCard {
             display: flex;
@@ -89,19 +89,19 @@ html,
             border: 1px solid #f0f0f0;
             width: 80%;
             justify-content: flex-start;
-
+ 
             .imgContainer {
                 img {
                     width: 100px;
                 }
             }
-
+ 
             p {
                 font-size: 40px;
                 font-weight: bold;
                 color: #004587;
                 margin: 0;
-
+ 
                 .textEstoqueB {
                     text-decoration: underline;
                     text-decoration-color: #ff7900;
@@ -110,11 +110,11 @@ html,
                     text-underline-offset: 6px;
                 }
             }
-
-
-
+ 
+ 
+ 
         }
-
+ 
         /* Rodapé de Suporte */
         .suportContainer {
             display: flex;
@@ -122,7 +122,7 @@ html,
             gap: 15px;
             align-self: flex-start;
             margin-bottom: 20px;
-
+ 
             .suportContainerImg {
                 border-radius: 100%;
                 box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.61);
@@ -130,13 +130,13 @@ html,
                     width: 35px;
                 }
             }
-
+ 
             b {
                 display: block;
                 font-size: 14px;
                 color: #333;
             }
-
+ 
             p {
                 font-size: 13px;
                 color: #666;
@@ -144,7 +144,7 @@ html,
             }
         }
     }
-
+ 
     /* --- 4. LADO DIREITO (LOGIN) --- */
     .containerRight {
         width: 55%;
@@ -152,7 +152,7 @@ html,
         display: flex;
         justify-content: center;
         align-items: center;
-
+ 
         .loginContainer {
             background-color: #0b1f48;
             /* Azul escuro do card */
@@ -164,31 +164,31 @@ html,
             display: flex;
             flex-direction: column;
             gap: 20px;
-
+ 
             /* Cabeçalho do Login */
             .loginImgContainer {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
-
+ 
                 img {
                     width: 80px;
                     margin-bottom: 15px;
                 }
-
+ 
                 .LoginTxt {
                     .titulo {
                         font-size: 26px;
                         font-weight: 700;
                         margin-bottom: 8px;
                     }
-
+ 
                     .subTitulo {
                         font-size: 14px;
                         font-weight: 400;
                         color: #ccc;
-
+ 
                         /* Corrige o <p> dentro do <h3> no JS para ficar na mesma linha */
                         .subTituloP {
                             display: inline;
@@ -199,23 +199,23 @@ html,
                     }
                 }
             }
-
+ 
             /* Formulário */
             .formLogin {
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
-
+ 
                 .areaEmail,
                 .areaSenha {
                     position: relative;
                     display: flex;
                     flex-direction: column;
-
+ 
                     .inpEmailLabel,
                     .inpLabel {
                         margin-bottom: 6px;
-
+ 
                         /* Ajusta a tag <h2> gerada dentro do label no seu JS */
                         h2 {
                             font-size: 14px;
@@ -223,7 +223,7 @@ html,
                             color: #ffffff;
                         }
                     }
-
+ 
                     /* Ícones da esquerda (E-mail e Cadeado) */
                     img:nth-of-type(1) {
                         position: absolute;
@@ -232,7 +232,7 @@ html,
                         width: 20px;
                         opacity: 0.7;
                     }
-
+ 
                     /* Ícone do olho (Senha) na direita */
                     img:nth-of-type(2) {
                         position: absolute;
@@ -242,7 +242,7 @@ html,
                         cursor: pointer;
                         opacity: 0.7;
                     }
-
+ 
                     input {
                         width: 100%;
                         padding: 12px 40px 12px 45px;
@@ -254,29 +254,29 @@ html,
                         font-size: 14px;
                         outline: none;
                         transition: border-color 0.2s;
-
+ 
                         &::placeholder {
                             color: #8fa0c0;
                         }
-
+ 
                         &:focus {
                             border-color: #ff7900;
                         }
                     }
                 }
-
+ 
                 .esqueciSenha {
                     align-self: flex-end;
                     color: #58a6ff;
                     font-size: 13px;
                     text-decoration: none;
                     margin-top: -4px;
-
+ 
                     &:hover {
                         text-decoration: underline;
                     }
                 }
-
+ 
                 .btnEntrar {
                     background-color: #ff7900;
                     color: #ffffff;
@@ -288,17 +288,17 @@ html,
                     cursor: pointer;
                     margin-top: 10px;
                     transition: background-color 0.2s, transform 0.1s;
-
+ 
                     &:hover {
                         background-color: #e66e14;
                     }
-
+ 
                     &:active {
                         transform: scale(0.98);
                     }
                 }
             }
-
+ 
             /* Alerta de Colaboradores */
             .alertaExclusivo {
                 display: flex;
@@ -310,11 +310,11 @@ html,
                 border: 1px solid rgba(255, 255, 255, 0.15);
                 border-radius: 8px;
                 margin-top: 10px;
-
+ 
                 img {
                     width: 18px;
                 }
-
+ 
                 p {
                     font-size: 13px;
                     color: #d0d0d0;
