@@ -18,11 +18,11 @@ const PORT = process.env.PORT || 3000;
 
 const require = createRequire(import.meta.url);
 const googlFonts = require('google-fonts');
-const visibleIcon = require('@iconify/icons-basil/eye-solid').default;
-const invisibleIcon = require('@iconify/icons-basil/eye-closed-outline').default;
+const visibleIcon = require('@iconify/icons-basil/eye-solid.js').default;
+const invisibleIcon = require('@iconify/icons-basil/eye-closed-outline.js').default;
 
 app.use(express.json());
-
+app.use('/public', express.static(path.join(__dirname, 'public')));
 // Servir os arquivos estáticos a partir da pasta 'src/view'
 app.use(express.static(path.join(__dirname, 'src', 'view')));
 

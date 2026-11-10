@@ -1,5 +1,9 @@
 import { createLoginForm } from '../components/form.js';
 
+const res = await fetch(`/interface-config`);
+const interfaceConfig = await res.json();
+
+
 //pega a div app do html
 const app = document.getElementById('app');
 
@@ -61,6 +65,8 @@ const suportTxt1 = document.createElement('b');
 suportTxt1.textContent = 'Precisa de ajuda?';
 const suportTxt2 = document.createElement('p');
 suportTxt2.textContent = 'Entre em contato com o suporte do Senac';
+
+
 
 //a tela entra no app
 app.appendChild(loginScreen);
@@ -144,7 +150,7 @@ LoginTxt.appendChild(titulo);
 LoginTxt.appendChild(subTitulo);
 
 // 2. Chama o componente do formulário e injeta na tela
-const formLoginComponent = createLoginForm();
+const formLoginComponent = createLoginForm(interfaceConfig.icons);
 loginContainer.appendChild(formLoginComponent);
 
 // 3. Adiciona o alerta no final

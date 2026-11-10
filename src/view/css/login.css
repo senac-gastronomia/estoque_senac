@@ -110,9 +110,6 @@ html,
                     text-underline-offset: 6px;
                 }
             }
-
-
-
         }
 
         /* Rodapé de Suporte */
@@ -189,7 +186,6 @@ html,
                         font-weight: 400;
                         color: #ccc;
 
-                        /* Corrige o <p> dentro do <h3> no JS para ficar na mesma linha */
                         .subTituloP {
                             display: inline;
                             color: #ff7900;
@@ -206,17 +202,15 @@ html,
                 flex-direction: column;
                 gap: 16px;
 
-                .areaEmail,
-                .areaSenha {
+                /* Área do E-mail */
+                .areaEmail {
                     position: relative;
                     display: flex;
                     flex-direction: column;
 
-                    .inpEmailLabel,
                     .inpLabel {
                         margin-bottom: 6px;
 
-                        /* Ajusta a tag <h2> gerada dentro do label no seu JS */
                         h2 {
                             font-size: 14px;
                             font-weight: 600;
@@ -224,8 +218,8 @@ html,
                         }
                     }
 
-                    /* Ícones da esquerda (E-mail e Cadeado) */
-                    img:nth-of-type(1) {
+                    /* Ícone de E-mail na esquerda */
+                    img {
                         position: absolute;
                         left: 14px;
                         top: 38px;
@@ -233,20 +227,9 @@ html,
                         opacity: 0.7;
                     }
 
-                    /* Ícone do olho (Senha) na direita */
-                    img:nth-of-type(2) {
-                        position: absolute;
-                        right: 14px;
-                        top: 38px;
-                        width: 22px;
-                        cursor: pointer;
-                        opacity: 0.7;
-                    }
-
                     input {
                         width: 100%;
-                        padding: 12px 40px 12px 45px;
-                        /* Espaço para os ícones nas pontas */
+                        padding: 12px 12px 12px 45px;
                         background-color: rgba(255, 255, 255, 0.08);
                         border: 1px solid #233f78;
                         border-radius: 8px;
@@ -261,6 +244,86 @@ html,
 
                         &:focus {
                             border-color: #ff7900;
+                        }
+                    }
+                }
+
+                /* Área da Senha */
+                .areaSenha {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+
+                    .inpLabel {
+                        margin-bottom: 6px;
+
+                        h2 {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: #ffffff;
+                        }
+                    }
+
+                    /* Ícone de Cadeado/KeyWord na esquerda */
+                    > img {
+                        position: absolute;
+                        left: 14px;
+                        top: 38px;
+                        width: 20px;
+                        opacity: 0.7;
+                    }
+
+                    /* Container gerado pelo script de visibilidade (divSenha) */
+                    .divSenha {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+
+                        input {
+                            width: 100%;
+                            padding: 12px 45px 12px 45px; /* Espaço para o ícone esquerdo e o botão do olho direito */
+                            background-color: rgba(255, 255, 255, 0.08);
+                            border: 1px solid #233f78;
+                            border-radius: 8px;
+                            color: #ffffff;
+                            font-size: 14px;
+                            outline: none;
+                            transition: border-color 0.2s;
+
+                            &::placeholder {
+                                color: #8fa0c0;
+                            }
+
+                            &:focus {
+                                border-color: #ff7900;
+                            }
+                        }
+
+                        /* Botão do Olho (Visibilidade) */
+                        .btnVisibilidade {
+                            position: absolute;
+                            right: 12px;
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0;
+                            outline: none;
+                            color: #8fa0c0;
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                                fill: #8fa0c0;
+                                transition: fill 0.2s;
+                            }
+
+                            &:hover .btnVisibilidade {
+                                color: #ffffff;
+                            }
                         }
                     }
                 }
