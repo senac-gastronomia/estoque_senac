@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produto - Senac</title>
+  <link rel="stylesheet" href="/src/view/css/style.css">
+  <link rel="stylesheet" href="/src/view/css/sidebar.css">
+</head>
+
+<body>
+
+
+  <div id="navbar-placeholder"></div>
+
+
+  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 30px 20px;">
+
+
+    <header style="margin-bottom: 30px;">
+      <h1 style="margin: 0; font-size: 22px; font-weight: bold; color: #111;">Cadastro de Produto</h1>
+      <p style="margin: 5px 0 0 0; color: #888; font-size: 13px;">Adicione um produto ao estoque</p>
+    </header>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+
+      <img src="/public/assets/caixa_preta.png" alt="Ícone Informações" style="width: 20px; object-fit: contain;">
+      <h2 style="margin: 0; font-size: 16px; font-weight: bold; color: #111;">Informações do produto</h2>
+    </div>
+
+    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+
+      <div style="flex: 1; min-width: 600px;">
+        <section id="form-produto-container"></section>
+      </div>
+
+      <div style="width: 300px; display: flex; flex-direction: column; gap: 20px;">
+        <section id="upload-imagem-container"></section>
+        <section id="botoes-cadastro-container"></section>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/src/view/components/navbar.js"></script>
+  <script src="/src/view/components/botoes.cadastro.js"></script>
+  <script src="/src/view/components/upload.produto.js"></script>
+  <script src="/src/view/components/sidebar.auxiliar.js"></script>
+  <script src="/src/view/components/formulario.produto.js"></script>
+
+
+
+</body>
+
+</html>
