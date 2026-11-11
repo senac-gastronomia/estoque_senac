@@ -4,7 +4,7 @@ const menuItems = [
   { icon: '/public/assets/adicionar.caixa.png', alt: 'Adicionar Caixa Icon', text: 'Adicionar Produto', className: '', url: '/src/view/nova.solicitacao.html' },
   { icon: '/public/assets/carrinho_deposito.png', alt: 'Inventario Icon', text: 'Inventário', className: '' },
   { icon: '/public/assets/icons8-clipboard-50.png', alt: 'Solicitacoes Icon', text: 'Solicitações', className: '' },
-  { icon: '/public/assets/icons8-graph-axes-24.png', alt: 'Relatório Icon', text: 'Relatório', className: '' },
+  { icon: '/public/assets/icons8-graph-axes-24.png', alt: 'Relatório Icon', text: 'Relatório', className: '', url: '/src/view/relatoriosAuxiliar.html' },
   { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: '/src/view/configuracoes.html' }
 ];
 

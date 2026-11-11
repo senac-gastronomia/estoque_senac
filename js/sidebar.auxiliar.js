@@ -3,7 +3,7 @@ const menuItems = [
   { icon: '/img/estoque.png', alt: 'Estoque Icon', text: 'Estoque', className: '' },
   { icon: '/img/carrinho_deposito.png', alt: 'Inventario Icon', text: 'Inventário', className: '' },
   { icon: '/img/icons8-clipboard-50.png', alt: 'Solicitacoes Icon', text: 'Solicitações', className: '' },
-  { icon: '/img/icons8-graph-axes-24.png', alt: 'Relatório Icon', text: 'Relatório', className: '' },
+  { icon: '/img/icons8-graph-axes-24.png', alt: 'Relatório Icon', text: 'Relatório', className: '', url: 'relatoriosAuxiliar.html' },
   { icon: '/img/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: 'configuracoes.html' }
 ];
 

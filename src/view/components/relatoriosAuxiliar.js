@@ -1,4 +1,4 @@
-import { Table } from "../../components/tabelaAuxiliar.js";
+import { Table } from "./tabelaAuxiliar.js";
 
 
 // ======================================

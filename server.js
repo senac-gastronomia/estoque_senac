@@ -45,11 +45,6 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(express.static(path.join(__dirname, 'src', 'view')));
 
-app.get('/', (req, res) => {
-    res.sendFile('relatoriosAuxiliar.html', {
-        root: './src/view/auxiliar'
-    });
-});
 
 app.get('/', (req, res) => {
     res.status(404).send('Aqui será a tela inicial.');
@@ -81,6 +76,10 @@ app.get('/turma', (req, res) => {
 
 app.get('/auxiliar', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'view', 'auxiliar.dashboard.html'));
+});
+
+app.get('/auxiliar_relatorio', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'view', 'relatoriosAuxiliar.html'));
 });
 
 // Página de Erro 404 (Caso a rota não exista)
