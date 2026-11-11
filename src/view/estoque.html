@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque da Cozinha - Senac</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+
+    <div class="container dashboard-container">
+
+
+        <header class="dashboard-header">
+            <h1 class="dashboard-title">Estoque da Cozinha</h1>
+            <p class="dashboard-subtitle">Gerencie a movimentação de ingredientes e produtos.</p>
+        </header>
+
+
+        <div class="dashboard-grid">
+
+            <div class="grid-col-left">
+                <section id="tabela-estoque-container"></section>
+            </div>
+
+
+            <div class="grid-col-right" style="display: flex; flex-direction: column; gap: 24px;">
+                <!-- Ações Rápidas -->
+                <section id="acoes-rapidas-container"></section>
+
+
+                <section id="movimentacoes-recentes-container"></section>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/src/view/components/navbar.js"></script>
+    <script src="components/sidebar.auxiliar.js"></script>
+    <script src="components/tabela.estoque.js"></script>
+    <script src="components/entrada.saida.js"></script>
+    <script src="components/mov.recente.js"></script>
+    <script src="components/tabela.movimentacao.js"></script>
+</body>
+
+</html>

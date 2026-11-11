@@ -7,7 +7,7 @@
 
 body {
     background-color: #f4f4f4;
-    background-image: url('/img/fundo.png');
+    background-image: url('/public/assets/fundo.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1312,5 +1312,65 @@ td {
 @media (max-width: 768px) {
     .alertas-body {
         flex-direction: column;
+    }
+}
+
+.dashboard-container {
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 10px;
+}
+
+.dashboard-title {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    font-size: 22px; 
+    color: #111;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    color: #666; 
+    font-size: 13px; 
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+/* Divisão de Colunas (Movimentações e Gráfico) */
+.dashboard-grid {
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+}
+
+.grid-col-left {
+    flex: 2; 
+    min-width: 600px;
+}
+
+.grid-col-right {
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 400px;
+}
+
+/* Responsividade: Empilha as colunas em ecrãs pequenos */
+@media (max-width: 960px) {
+    .grid-col-left {
+        min-width: 100%;
+        flex: none;
+        width: 100%;
+    }
+    .grid-col-right {
+        max-width: 100%;
+        flex: none;
+        width: 100%;
     }
 }

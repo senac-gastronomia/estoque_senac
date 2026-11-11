@@ -10,22 +10,39 @@
 </head>
 
 <body>
-  <div class="container"
-    style="display: flex; flex-direction: column; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
 
-    <header class="header" style="margin-bottom: 10px;">
-      <h1 style="display: flex; align-items: center; gap: 8px; font-size: 22px; color: #111;">
-        Olá, Docente!
-      </h1>
-      <p style="color: #666; font-size: 13px; margin-top: 4px;">Veja o resumo do estoque de hoje</p>
+  <!-- Container Principal usando as novas classes do CSS -->
+  <div class="container dashboard-container">
+    
+    <header class="dashboard-header">
+      <h1 class="dashboard-title">Olá, Docente!</h1>
+      <p class="dashboard-subtitle">Veja o resumo do estoque de hoje</p>
     </header>
+
 
     <section id="dashboard-container"></section>
 
+
     <section id="alertas-container"></section>
+
+
+    <div class="dashboard-grid">
+        <div class="grid-col-left">
+            <section id="movimentacoes-container"></section>
+        </div>
+        
+        <div class="grid-col-right">
+            <section id="produtos-utilizados-container"></section>
+        </div>
+    </div>
 
   </div>
 
+  <!-- Scripts -->
+  <script src="/src/view/components/produtos.utilizados.js"></script>
+  <script src="/src/view/components/tabela.movimentacao.js"></script>
   <script src="/src/view/components/auxiliar.cards.js"></script>
   <script src="/src/view/components/alerta.card.js"></script>
   <script src="/src/view/components/navbar.js"></script>
