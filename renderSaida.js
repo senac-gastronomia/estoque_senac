@@ -33,7 +33,7 @@ const renderSaida = () => {
     headerText.className = 'headerText';
 
     // Adicionando título e subtítulo dentro dela
-    
+
 
     // Criando o título
     const titulo = document.createElement('h2');
@@ -54,13 +54,7 @@ const renderSaida = () => {
     btnSaidaRegistro.textContent = 'Registrar Saida';
     btnSaidaRegistro.className = 'btnSaidaRegistro'
 
-    // Adicionando o título e o botão ao cabeçalho
-    header.appendChild(headerText);
-    header.appendChild(btnFechar);
 
-    
-    headerText.appendChild(titulo);
-    headerText.appendChild(subtitulo);
 
 
     // Adicionando o cabeçalho ao pop-up
@@ -76,6 +70,89 @@ const renderSaida = () => {
     });
 
 
+    //Campo do nome, data, quantidade e codigo
+
+    //linha dos campos
+    const linhaCampos = document.createElement('div');
+    linhaCampos.className = 'linhaCampos';
+
+    //linha dos campos 2
+    const linhaCampos2 = document.createElement('div');
+    linhaCampos2.className = 'linhaCampos2';
+
+    //nomes
+    const campoNome = document.createElement('div');
+    campoNome.className = 'campo';
+
+    const InputNome = document.createElement('input');
+    InputNome.placeholder = 'Ex: farinha de trigo';
+    InputNome.type = 'text';
+
+    const LabelNome = document.createElement('label');
+    LabelNome.textContent = 'Nome do produto';
+
+    //data
+    const campoData = document.createElement('div');
+    campoData.className = 'campo';
+
+    const InputData = document.createElement('input');
+    InputData.type = 'date';
+
+    const LabeData = document.createElement('label')
+    LabeData.textContent = 'Data de saida';
+
+
+    //Codigo
+    const campoCodigo = document.createElement('div');
+    campoCodigo.className = 'campo';
+
+    const InputCodigo = document.createElement('input');
+    InputCodigo.type = 'number';
+    InputCodigo.placeholder = 'Ex: 7891000438411';
+
+    const LabelCodigo = document.createElement('label');
+    LabelCodigo.textContent = 'Codigo do produto';
+
+
+    //quantidade
+    const campoQuantidade = document.createElement('div');
+    campoQuantidade.className = 'campo';
+
+
+    const inputQuantidade = document.createElement('input');
+    inputQuantidade.type = 'number';
+    inputQuantidade.min = '0';
+    inputQuantidade.placeholder = '0';
+
+    const labelQuantidade = document.createElement('label');
+    labelQuantidade.textContent = 'Quantidade';
+
+
+
+
+
+    // ligações nome
+    campoNome.appendChild(InputNome);
+    campoNome.appendChild(LabelNome);
+
+    // ligacoes data
+    campoData.appendChild(InputData);
+    campoData.appendChild(LabeData);
+
+    //ligacoes codigo
+    campoCodigo.appendChild(InputCodigo)
+    campoCodigo.appendChild(LabelCodigo)
+
+    //ligacoes quantidade
+    campoQuantidade.appendChild(inputQuantidade)
+    campoQuantidade.appendChild(labelQuantidade)
+
+
+    //ligacoes para linha
+    linhaCampos.appendChild(campoNome);
+    linhaCampos.appendChild(campoData);
+    // ligacao de tudo
+    popup.appendChild(linhaCampos);
 
 
 
@@ -98,9 +175,22 @@ const renderSaida = () => {
         }
     });
 
+
+    // Adicionando o título e o botão ao cabeçalho
+    header.appendChild(headerText);
+    header.appendChild(btnFechar);
+    headerText.appendChild(titulo);
+    headerText.appendChild(subtitulo);    // Adicionando o título e o botão ao cabeçalho
+    header.appendChild(headerText);
+    header.appendChild(btnFechar);
+    headerText.appendChild(titulo);
+    headerText.appendChild(subtitulo);    // Adicionando o título e o botão ao cabeçalho
+    header.appendChild(headerText);
+    header.appendChild(btnFechar);
+    headerText.appendChild(titulo);
+    headerText.appendChild(subtitulo);
     container.appendChild(button);
     container.appendChild(overlay);
-
     container.appendChild(form);
 
 

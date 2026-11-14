@@ -145,10 +145,12 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 600px;
     background-color: #8054D6;
     color: white;
 
+    width: 70%;
+    height: 50px;
     border: none;
     border-radius: 8px;
 
@@ -159,3 +161,46 @@ a {
 
     cursor: pointer;
 }
+
+
+/* Linha que agrupa os campos */
+.linhaCampos {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: -600px;
+}
+
+/* Cada campo individual */
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+
+/* Textos dos campos */
+.campo label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: -50px;
+}
+
+/* Caixas de preenchimento */
+.campo input {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+}
+
