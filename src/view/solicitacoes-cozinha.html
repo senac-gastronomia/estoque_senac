@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Solicitações da Cozinha</title>
+ 
+    <link rel="stylesheet" href="../view/css/solicitacoes-cozinha.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/view/css/style.css">
+    <link rel="stylesheet" href="/src/view/css/sidebar.css">
+</head>
+ 
+<body>
+ 
+    <main class="pagina-solicitacoes">
+ 
+        <header class="pagina-header">
+            <h1>Solicitações da cozinha</h1>
+            <p>Acompanhe os pedidos enviados pelos docentes</p>
+        </header>
+ 
+        <section class="area-pesquisa">
+ 
+            <div class="campo-pesquisa">
+ 
+                <i class="fa-solid fa-magnifying-glass"></i>
+ 
+                <input
+                    type="text"
+                    id="pesquisaPedido"
+                    placeholder="Buscar por docente, área..."
+                >
+ 
+            </div>
+ 
+        </section>
+ 
+        <section
+            class="lista-solicitacoes"
+            id="listaSolicitacoes"
+        >
+            <!-- Pedidos carregados pelo JavaScript -->
+        </section>
+ 
+        <section
+            class="estado-vazio"
+            id="estadoVazio"
+            hidden
+        >
+ 
+            <i class="fa-regular fa-file-lines"></i>
+ 
+            <p>Nenhum pedido no momento</p>
+ 
+            <span>
+                Quando os docentes enviarem solicitações,
+                elas aparecerão aqui.
+            </span>
+ 
+        </section>
+ 
+    </main>
+ 
+    <script src="components/navbar.js"></script>
+    <script src="components/sidebar.auxiliar.js"></script>
+    <script type="module" src="../view/pages/solicitacoes-cozinha.js"></script>
+ 
+</body>
+</html>

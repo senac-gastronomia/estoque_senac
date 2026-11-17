@@ -82,6 +82,9 @@ app.get('/auxiliar_relatorio', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'view', 'relatoriosAuxiliar.html'));
 });
 
+app.get('/auxiliar_solicitacoes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'view', 'solicitacoes-cozinha.html'));
+});
 // Página de Erro 404 (Caso a rota não exista)
 app.use((req, res) => {
     res.status(404).send('Erro 404: Página não encontrada.');
