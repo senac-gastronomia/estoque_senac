@@ -1,51 +1,59 @@
 import { createLoginForm } from '../components/form.js';
+
+// --- CONFIGURAÇÃO DO SUPABASE DIRETAMENTE NO FRONT-END ---
+// Substitua pelos valores reais que encontra no painel do Supabase em Project Settings > API
+const SUPABASE_URL = 'https://mrjeiydkfpinjdfdrigm.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_I-SCohfTZfmuFumyqykbXA_Ec5enXkz';
+
+// Cria a instância do Supabase utilizando o script carregado via CDN no HTML
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
  
-//pega a div app do html
+// Pega a div app do html
 const app = document.getElementById('app');
  
-//div com a img do fundo
+// Div com a img do fundo
 const background = document.createElement('div');
 background.className = 'background';
  
 const divison = document.createElement('div');
-divison.className = 'division'
+divison.className = 'division';
  
-//div principal
+// Div principal
 const loginScreen = document.createElement('div');
 loginScreen.className = 'loginScreen';
  
-//container da parte esquerda
+// Container da parte esquerda
 const containerLeft = document.createElement('div');
 containerLeft.className = 'containerLeft';
  
-//container onde fica a logo
+// Container onde fica a logo
 const logoSenacContainer = document.createElement('div');
 logoSenacContainer.className = 'logoSenacContainer';
  
-// container do texto embaixo da logo
+// Container do texto embaixo da logo
 const textLogo1 = document.createElement('p');
 textLogo1.innerHTML = '<b class="textLogoB">EDUCAÇÃO</b> QUE TRANSFORMA';
 const textLogo2 = document.createElement('p');
 textLogo2.innerHTML = '<b class = "textLogoB">ESTOQUE</b> QUE ORGANIZA';
  
-//logo do senac
+// Logo do senac
 const senacLogo = document.createElement('img');
-senacLogo.className = 'senacLogo'
+senacLogo.className = 'senacLogo';
 senacLogo.src = '../../../public/assets/img/SenacLogo.png';
  
-// card escrito Estoque
+// Card escrito Estoque
 const estoqueCard = document.createElement('div');
 estoqueCard.className = 'estoqueCard';
  
-// container da img de caxia no container estoque
+// Container da img de caixa no container estoque
 const estoqueImgContainer = document.createElement('div');
 estoqueImgContainer.className = 'imgContainer';
  
-// img de caixa no card estoque
+// Img de caixa no card estoque
 const estoqueImg = document.createElement('img');
 estoqueImg.src = '../../../public/assets/img/caixaCardEstoque.png';
  
-// texto do card estoque
+// Texto do card estoque
 const estoqueText = document.createElement('p');
 estoqueText.innerHTML = '<u class = "textEstoqueB">ESTOQUE</u>';
  
@@ -53,38 +61,38 @@ const suportContainer = document.createElement('div');
 suportContainer.className = 'suportContainer';
  
 const suportContainerImg = document.createElement('div');
-suportContainerImg.className = 'suportContainerImg'
+suportContainerImg.className = 'suportContainerImg';
 const suportImg = document.createElement('img');
-suportImg.src = '../../../public/assets/img/suport.png'
+suportImg.src = '../../../public/assets/img/suport.png';
  
 const suportTxt1 = document.createElement('b');
 suportTxt1.textContent = 'Precisa de ajuda?';
 const suportTxt2 = document.createElement('p');
 suportTxt2.textContent = 'Entre em contato com o suporte do Senac';
  
-//a tela entra no app
+// A tela entra no app
 app.appendChild(loginScreen);
  
-//o fundo entra na tela
+// O fundo entra na tela
 loginScreen.appendChild(background);
-loginScreen.appendChild(divison)
-//o container da esquerda entra na tela primeiro
+loginScreen.appendChild(divison);
+// O container da esquerda entra na tela primeiro
 divison.appendChild(containerLeft);
  
-// o container da logo entra na parte esquerda
+// O container da logo entra na parte esquerda
 containerLeft.appendChild(logoSenacContainer);
  
-//no container do logo entra a img texto1 e texto2
+// No container do logo entra a img texto1 e texto2
 logoSenacContainer.appendChild(senacLogo);
 logoSenacContainer.appendChild(textLogo1);
 logoSenacContainer.appendChild(textLogo2);
  
-//na parte esquerda entra o container do estoque
+// Na parte esquerda entra o container do estoque
 containerLeft.appendChild(estoqueCard);
  
-// entra no card do estoque o container para a img de caixa
+// Entra no card do estoque o container para a img de caixa
 estoqueCard.appendChild(estoqueImgContainer);
-// coloca a img de caixa no container para ela
+// Coloca a img de caixa no container para ela
 estoqueImgContainer.appendChild(estoqueImg);
 estoqueCard.appendChild(estoqueText);
  
@@ -94,21 +102,19 @@ suportContainerImg.appendChild(suportImg);
 suportContainer.appendChild(suportTxt1);
 suportContainer.appendChild(suportTxt2);
  
- 
- 
-// container da parte direita da tela
+// Container da parte direita da tela
 const containerRight = document.createElement('div');
 containerRight.className = 'containerRight';
  
-// container do login
+// Container do login
 const loginContainer = document.createElement('div');
 loginContainer.className = 'loginContainer';
  
-// container da img
+// Container da img
 const loginImgContainer = document.createElement('div');
 loginImgContainer.className = 'loginImgContainer';
  
-// img do login
+// Img do login
 const loginImg = document.createElement('img');
 loginImg.src = '../../../public/assets/img/login.png';
  
@@ -146,16 +152,33 @@ LoginTxt.appendChild(subTitulo);
 // 2. Chama o componente do formulário e injeta na tela
 const formLoginComponent = createLoginForm();
 loginContainer.appendChild(formLoginComponent);
+
+// 3. Botão da Microsoft configurado para interagir diretamente com o Supabase no browser
 const btnMicrosoft = loginContainer.querySelector('.btn-microsoft') || loginContainer.querySelector('#btn-microsoft');
 
 if (btnMicrosoft) {
-    btnMicrosoft.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que o formulário tente fazer um submit padrão
-        window.location.href = '/autenticacao/microsoft';
+    btnMicrosoft.addEventListener('click', async (e) => {
+        e.preventDefault(); 
+        
+        try {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'azure',
+                options: {
+                    redirectTo: 'http://localhost:3000/docente', // Página para onde o usuário vai após logar com sucesso
+                    queryParams: {
+                        prompt: 'select_account' // Força a exibir a seleção de contas da Microsoft
+                    }
+                }
+            });
+
+            if (error) throw error;
+        } catch (err) {
+            console.error("Erro ao autenticar com a Microsoft:", err.message);
+        }
     });
 }
  
-// 3. Adiciona o alerta no final
+// 4. Adiciona o alerta no final
 loginContainer.appendChild(alertaExclusivo);
 alertaExclusivo.appendChild(imgAlerta);
 alertaExclusivo.appendChild(alertaTxt);

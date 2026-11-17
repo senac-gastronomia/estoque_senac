@@ -29,20 +29,27 @@ class AuthService {
     }
 
     static async loginMicrosoft() {
-        const { data, error } = await conn.auth.signInWithOAuth({
-            provider: 'azure',
-            options: {
-                redirectTo: 'http://localhost:3000/autenticacao/callback',
-                queryParams: {
-                    prompt: 'select_account',
-                    // Adicione esta linha com o e-mail que você quer fixar:
-                    login_hint: 'kadu.com2008@gmail.com' // <-- Substitua pelo e-mail correto da Microsoft
-                }
+    const { data, error } = await conn.auth.signInWithOAuth({
+        provider: 'azure',
+        options: {
+            redirectTo: 'http://localhost:3000/autenticacao/callback', // Deve ser idêntica à cadastrada no Supabase
+            queryParams: {
+                prompt: 'select_account' 
             }
-        });
+        }
+    });
 
+    if (error) throw error;
+    return data;
+}
+    // Novo método para processar o retorno do Azure/Supabase na rota de callback
+    static async handleCallback(code) {
+        const { data, error } = await conn.auth.exchangeCodeForSession(code);
+        
         if (error) throw error;
-        return data;
+        
+        // Retorna a sessão e o usuário coletados com sucesso
+        return data; 
     }
 }
 

@@ -12,7 +12,7 @@ class AuthController {
             if (!nome || !email || !senha) {
                 return res
                     .status(400)
-                    .json({ erro: `preencha todos os campos obrigatorios` });
+                    .json({ erro: `Preencha todos os campos obrigatórios` });
             }
 
             const resultado = await AuthService.cadastrar(
@@ -20,7 +20,7 @@ class AuthController {
             );
 
             return res.status(201).json({
-                mensagem: `cadastro feito com sucesso!`,
+                mensagem: `Cadastro feito com sucesso!`,
                 usuario: resultado.user,
                 requerConfirmacao: !resultado.session
             });
@@ -76,10 +76,35 @@ class AuthController {
         }
     }
 
-    // Método de callback após o retorno da Microsoft
+    // Método de callback corrigido após o retorno da Microsoft
     static async callbackMicrosoft(req, res) {
-        return res.redirect('/docente');
+        try {
+            const { code } = req.query;
+
+            if (!code) {
+                return res.status(400).json({ erro: "Código de autorização não encontrado na URL de callback." });
+            }
+
+            // Troca o código de autorização pela sessão real e dados do usuário no Supabase
+            const resultado = await AuthService.handleCallback(code);
+
+            // Opcional recomendado: Salvar o access_token em um Cookie seguro (HTTP-only)
+            // para que as próximas requisições do front-end consigam autenticar o usuário.
+            res.cookie('auth_token', resultado.session.access_token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                maxAge: 1000 * 60 * 60 * 24 * 7 // 7 dias
+            });
+
+            // Redireciona o usuário para o painel de docente autenticado
+            return res.redirect('/docente');
+        } catch (erro) {
+            console.error("Erro no callback do Microsoft:", erro.message);
+            // Em caso de erro, redireciona para a página de login informando a falha
+            return res.redirect(`/login?erro=${encodeURIComponent(erro.message)}`);
+        }
     }
 }
 
 export default AuthController;
+
