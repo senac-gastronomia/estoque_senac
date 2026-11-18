@@ -1,7 +1,7 @@
 const menuItems = [
   { icon: '/public/assets/icons8-home-50.png', alt: 'Home Icon', text: 'Dashboard', className: 'btn-dashboard', url: 'apoio.dashboard.html' },
   { icon: '/public/assets/icons8-clipboard-50.png', alt: 'Pedidos Icon', text: 'Pedidos', className: '', url: 'apoio.html' },
-  { icon: '/public/assets/grupo-auxiliar.png', alt: 'Usuarios Icon', text: 'Usuários', className: '', url: 'usuarios.html' },
+  { icon: '/public/assets/grupo-auxiliar.png', alt: 'Curso_Turma Icon', text: 'Novo Curso/Turma', className: '', url: 'usuarios.html' },
   { icon: '/public/assets/config.png', alt: 'Configurações Icon', text: 'Configurações', className: '', url: 'configuracoes.html' }
 ];
 

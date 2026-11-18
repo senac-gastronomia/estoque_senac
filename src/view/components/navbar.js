@@ -21,8 +21,8 @@ function criarNavbar() {
     <div class="navbar-center">
       <img src="/public/assets/calendario.png" alt="Calendário" class="navbar-icon-img" />
       <div class="navbar-date-info">
-        <span class="navbar-date-main">17 de junho de 2026</span>
-        <span class="navbar-date-sub">Quarta-Feira 20:18</span>
+        <span id="data-atual" class="navbar-date-main"></span>
+        <span id="hora-atual" class="navbar-date-sub"></span>
       </div>
     </div>
 
@@ -41,6 +41,43 @@ function criarNavbar() {
   return navbar;
 }
 
+// Função para atualizar data e hora (sem segundos)
+function atualizarDataHora() {
+  const agora = new Date();
+
+  const data = agora.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const diaSemanaRaw = agora.toLocaleDateString('pt-BR', {
+    weekday: 'long'
+  });
+  const diaSemana = diaSemanaRaw.charAt(0).toUpperCase() + diaSemanaRaw.slice(1);
+
+  const hora = agora.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+
+  const elData = document.getElementById('data-atual');
+  const elHora = document.getElementById('hora-atual');
+
+  if (elData && elHora) {
+    elData.textContent = data;
+    elHora.textContent = `${diaSemana} ${hora}`;
+  }
+}
+
+// Inicialização da Navbar
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.insertBefore(criarNavbar(), document.body.firstChild);
+  document.body.insertBefore(
+    criarNavbar(),
+    document.body.firstChild
+  );
+
+  atualizarDataHora();
+  setInterval(atualizarDataHora, 1000);
 });

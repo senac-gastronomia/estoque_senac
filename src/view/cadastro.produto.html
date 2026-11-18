@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -9,14 +9,33 @@
     <link rel="stylesheet" href="css/sidebar.css">
 </head>
 
-<body>
+<body class="page-cadastro-produto">
     <div id="navbar-placeholder"></div>
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-        <section id="form-produto-container"></section>
-    </div>
 
-    <section id="upload-imagem-container"></section>
+    <main class="container cadastro-page-container">
+        <div class="header cadastro-page-header">
+            <h1>Cadastro de Produto</h1>
+            <p>Adicione um produto ao estoque</p>
+        </div>
 
+        <div class="cadastro-section-header">
+            <img src="/public/assets/caixa.png" alt="Produto" onerror="this.style.display='none'">
+            <span>Informações do produto</span>
+        </div>
+
+        <div class="cadastro-layout">
+            <section id="form-produto-container" class="coluna-esquerda"></section>
+
+            <aside class="coluna-direita cadastro-coluna-direita">
+                <div id="upload-imagem-container"></div>
+
+                <div class="cadastro-acoes">
+                    <button type="button" class="btn-cadastro-acao btn-cadastrar" id="btn-cadastrar-produto">Cadastrar produto</button>
+                    <button type="button" class="btn-cadastro-acao btn-cancelar" id="btn-cancelar-cadastro">Cancelar cadastro</button>
+                </div>
+            </aside>
+        </div>
+    </main>
 
     <script src="components/navbar.js"></script>
     <script src="components/upload.produto.js"></script>
