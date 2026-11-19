@@ -63,7 +63,7 @@ const renderSaida = () => {
 
     //botao de registrar
 
-    popup.appendChild(btnSaidaRegistro);
+    
     // Evento para fechar o pop-up
     btnFechar.addEventListener('click', () => {
         overlay.classList.remove('ativo');
@@ -72,13 +72,16 @@ const renderSaida = () => {
 
     //Campo do nome, data, quantidade e codigo
 
+    const tabelaCampos = document.createElement('div');
+    tabelaCampos.className = 'tabelaCampos';
+
     //linha dos campos
     const linhaCampos = document.createElement('div');
     linhaCampos.className = 'linhaCampos';
 
     //linha dos campos 2
     const linhaCampos2 = document.createElement('div');
-    linhaCampos2.className = 'linhaCampos2';
+    linhaCampos2.className = 'linhaCampos';
 
     //nomes
     const campoNome = document.createElement('div');
@@ -151,14 +154,18 @@ const renderSaida = () => {
     //ligacoes para linha
     linhaCampos.appendChild(campoNome);
     linhaCampos.appendChild(campoData);
+
+    linhaCampos2.appendChild(campoCodigo);
+    linhaCampos2.appendChild(campoQuantidade);
+
     // ligacao de tudo
-    popup.appendChild(linhaCampos);
+    tabelaCampos.appendChild(linhaCampos);
+    tabelaCampos.appendChild(linhaCampos2);
+    tabelaCampos.appendChild(btnSaidaRegistro);
 
 
 
-
-
-
+    popup.appendChild(tabelaCampos);
 
 
     overlay.appendChild(popup)
@@ -177,14 +184,7 @@ const renderSaida = () => {
 
 
     // Adicionando o título e o botão ao cabeçalho
-    header.appendChild(headerText);
-    header.appendChild(btnFechar);
-    headerText.appendChild(titulo);
-    headerText.appendChild(subtitulo);    // Adicionando o título e o botão ao cabeçalho
-    header.appendChild(headerText);
-    header.appendChild(btnFechar);
-    headerText.appendChild(titulo);
-    headerText.appendChild(subtitulo);    // Adicionando o título e o botão ao cabeçalho
+
     header.appendChild(headerText);
     header.appendChild(btnFechar);
     headerText.appendChild(titulo);
