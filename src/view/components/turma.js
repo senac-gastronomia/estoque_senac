@@ -26,7 +26,6 @@ function criarSeletorTurma() {
         </div>
     `;
 
-
     const selectedDiv = container.querySelector('.turma-select-selected');
     const itemsDiv = container.querySelector('.turma-select-items');
     const options = itemsDiv.querySelectorAll('div');
@@ -39,9 +38,20 @@ function criarSeletorTurma() {
     options.forEach(option => {
         option.addEventListener('click', (e) => {
             e.stopPropagation();
-            selectedDiv.querySelector('span').textContent = option.textContent;
+            
+            const codigoTurma = option.getAttribute('data-value');
+            const nomeCompleto = option.textContent;
+
+            selectedDiv.querySelector('span').textContent = nomeCompleto;
             selectedDiv.querySelector('span').style.color = '#333';
             itemsDiv.classList.add('turma-select-hide');
+
+            // Salva o código e o nome completo na sessão do navegador
+            sessionStorage.setItem('turmaCodigo', codigoTurma);
+            sessionStorage.setItem('turmaNome', nomeCompleto);
+
+            // Redireciona passando o código da turma na URL (troque pelo nome do seu arquivo HTML)
+            window.location.href = `proxima_pagina.html?turma=${encodeURIComponent(codigoTurma)}`;
         });
     });
 
@@ -52,7 +62,8 @@ function criarSeletorTurma() {
     return container;
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.appendChild(criarSeletorTurma());
+    // Procura pela section específica no HTML; se não existir, insere no body
+    const target = document.getElementById('codigo-turma-container') || document.body;
+    target.appendChild(criarSeletorTurma());
 });
