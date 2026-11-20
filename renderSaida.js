@@ -74,6 +74,8 @@ const renderSaida = () => {
 
     const tabelaCampos = document.createElement('div');
     tabelaCampos.className = 'tabelaCampos';
+    const tabelaSUBcampos = document.createElement('div');
+    tabelaSUBcampos.className = 'tabelaSUBcampos'
 
     //linha dos campos
     const linhaCampos = document.createElement('div');
@@ -110,7 +112,7 @@ const renderSaida = () => {
     campoCodigo.className = 'campo';
 
     const InputCodigo = document.createElement('input');
-    InputCodigo.type = 'number';
+    InputCodigo.type = 'text';
     InputCodigo.placeholder = 'Ex: 7891000438411';
 
     const LabelCodigo = document.createElement('label');
@@ -158,14 +160,16 @@ const renderSaida = () => {
     linhaCampos2.appendChild(campoCodigo);
     linhaCampos2.appendChild(campoQuantidade);
 
+
+    tabelaSUBcampos.appendChild(linhaCampos);
+    tabelaSUBcampos.appendChild(linhaCampos2);
     // ligacao de tudo
-    tabelaCampos.appendChild(linhaCampos);
-    tabelaCampos.appendChild(linhaCampos2);
+    tabelaCampos.appendChild(tabelaSUBcampos);
     tabelaCampos.appendChild(btnSaidaRegistro);
 
 
+    popup.appendChild(tabelaCampos)
 
-    popup.appendChild(tabelaCampos);
 
 
     overlay.appendChild(popup)

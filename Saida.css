@@ -56,10 +56,10 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
-        justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    max-width: 880px;
-    min-height: 800px;
+    max-width: 780px;
+    min-height: 700px;
 
     border-radius: 8px;
 
@@ -170,11 +170,11 @@ a {
 .linhaCampos {
     display: flex;
     flex-direction: row;
-
     gap: 15px;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -211,7 +211,21 @@ a {
 .tabelaCampos {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    background-color: green;
+    gap: 260px;
+    /*background-color: green*/
+    
+}
+.tabelaCampos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
+.tabelaSUBcampos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px;
+
+    /*background-color: rgb(255, 0, 0);*/
 }
