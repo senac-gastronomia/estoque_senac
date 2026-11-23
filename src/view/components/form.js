@@ -1,13 +1,12 @@
-import criarInputSenha from "../utils/senhaVisibilidade.js";
+// import criarInputSenha from "../utils/senhaVisibilidade.js"; IMPORTANTE OLHAR
 
-// Adicionamos 'icons' como parâmetro da função
-export function createLoginForm(icons) {
+export function createLoginForm() {
     const formLogin = document.createElement('form');
     formLogin.className = 'formLogin';
 
     // --- Componente: E-mail ---
     const areaEmail = document.createElement('div');
-    areaEmail.className = 'areaEmail';
+    areaEmail.className = 'areaEmail'; // Ou 'inputGroup' para ser genérico
 
     const inpEmailLabel = document.createElement('label');
     inpEmailLabel.className = 'inpLabel';
@@ -32,8 +31,8 @@ export function createLoginForm(icons) {
 
     const inpSenhaLabel = document.createElement('label');
     inpSenhaLabel.className = 'inpLabel';
-    inpSenhaLabel.innerHTML = '<h2>Senha</h2>';
-    inpSenhaLabel.setAttribute('for', 'inpSenha');
+    inpSenhaLabel.innerHTML = '<h2>Senha</h2>'; // Corrigido de 'E-mail' para 'Senha'
+    inpSenhaLabel.setAttribute('for', 'inpSenha'); // Corrigido para 'inpSenha'
 
     const senhaImg = document.createElement('img');
     senhaImg.src = '../../../public/assets/img/KeyWordIcon.png';
@@ -42,17 +41,21 @@ export function createLoginForm(icons) {
     inpSenha.id = 'inpSenha';
     inpSenha.type = 'password';
     inpSenha.placeholder = 'Digite sua senha';
-    inpSenha.required = true;
+    inpSenha.required = 'true';
+    // const campoSenha = criarInputSenha(inpSenha, icons);  IMPORTANTE OLHAR
 
 
 
-    // Passando os icons recebidos por parâmetro
-    const campoSenha = criarInputSenha(inpSenha, icons);
+    const senhaOlhoImg = document.createElement('img');
+    senhaOlhoImg.src = '../../../public/assets/img/EyeIcon.png'; // Preenchido o ícone do olho
 
     areaSenha.appendChild(inpSenhaLabel);
-
     areaSenha.appendChild(senhaImg);
-    areaSenha.appendChild(campoSenha); // O campoSenha já encapsula o input e o botão de visibilidade
+    areaSenha.appendChild(inpSenha)
+    // areaSenha.appendChild(campoSenha); IMPORTANTE OLHAR
+    areaSenha.appendChild(senhaOlhoImg);
+
+
     // --- Componente: Esqueci minha senha ---
     const esqueciSenha = document.createElement('a');
     esqueciSenha.className = 'esqueciSenha';
@@ -60,44 +63,51 @@ export function createLoginForm(icons) {
     esqueciSenha.href = '#';
 
     // --- Componente: Botão Entrar ---
-    const btnEntrar = document.createElement('button');
+    const btnEntrar = document.createElement('button'); // Trocado para button type="submit" (mais semântico)
     btnEntrar.className = 'btnEntrar';
     btnEntrar.textContent = 'Entrar';
     btnEntrar.type = 'submit';
 
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = inpEmail.value.trim();
-        const senha = inpSenha.value.trim();
-        const usuario = { email, senha };
-
+        const email = inpEmail.value.trim()
+        const senha = inpSenha.value.trim()
+        const usuario = {
+            email,
+            senha
+        }
         try {
-            const resultado = await fetch("http://localhost:3000/autenticacao/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(usuario)
-            });
+            const resultado = await fetch("http://localhost:3000/autenticacao/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(usuario)
+                }
+            );
             const confirmacao = await resultado.json();
             if (!resultado.ok) {
-                alert("Conta inexistente!");
+                alert("Conta inexstente!")
             } else {
                 alert("Login realizado com sucesso!");
-            }
-            return confirmacao;
+            } return confirmacao;
         }
-        catch (erro) { // Corrigido para capturar o erro corretamente
+        catch {
+            console.error(erro)
             console.error(erro);
-            alert("Erro ao realizar login!");
+            alert("Erro ao cadastrar!");
+
         }
-    });
+    })
 
     // --- Montagem do Formulário ---
     formLogin.appendChild(areaEmail);
     formLogin.appendChild(areaSenha);
     formLogin.appendChild(esqueciSenha);
     formLogin.appendChild(btnEntrar);
+
+
 
     return formLogin;
 }
