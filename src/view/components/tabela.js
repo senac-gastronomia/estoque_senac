@@ -15,9 +15,14 @@ export function criarTabelaInventarios({ onExportar } = {}) {
 
     <div class="tabela-wrapper">
       <table class="tabela-inventarios">
+
+      <!-- Cabeçalho (nomes das colunas) --> 
         <thead>
-          <tr>
-            <th>Data do inventário</th>
+
+          <tr>  <!-- Tudo na mesma linha: table row -->
+
+            <!-- Cada coluna na linha de cabeçalho -->
+            <th>Data do inventário</th>  
             <th>Local</th>
             <th>produtos conferidos</th>
             <th>Total de produtos</th>
@@ -25,8 +30,11 @@ export function criarTabelaInventarios({ onExportar } = {}) {
             <th>situação</th>
             <th>responsavel</th>
           </tr>
+
         </thead>
+
         <tbody id="tabela-corpo"></tbody>
+
       </table>
     </div>
   `;
