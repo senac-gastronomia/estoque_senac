@@ -1,6 +1,6 @@
- 
-import { MeusPedidosTable } from "../components/MeusPedidosTable.js";
- 
+ import { MeusPedidosTable } from "../components/MeusPedidosTable.js";
+ import { renderEditarPedido } from "./editar-pedido.js";
+
 const container = document.querySelector("#meus-pedidos-container");
  
 function renderizarMeusPedidos() {
@@ -35,4 +35,16 @@ container.addEventListener("click", (event) => {
     if (!button) return;
  
     window.location.assign("/editar-pedido");
+});
+
+container.onclick = (event) => {
+  const botao = event.target.closest("[data-action='abrir-turma']");
+ 
+  if (!botao) return;
+ 
+  renderEditarPedido(container);
+};
+ 
+container.addEventListener("voltar-meus-pedidos", () => {
+  renderizarMeusPedidos();
 });
