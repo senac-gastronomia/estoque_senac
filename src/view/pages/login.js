@@ -1,51 +1,72 @@
 import { createLoginForm } from '../components/form.js';
 
-//pega a div app do html
+const hashParams = new URLSearchParams(window.location.hash.substring(1));
+const accessToken = hashParams.get('access_token');
+
+if (accessToken) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+
+    fetch('/autenticacao/microsoft/validar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ access_token: accessToken })
+    })
+        .then(async (res) => {
+            const dados = await res.json();
+            if (!res.ok) {
+                throw new Error(dados.erro || 'Erro ao validar acesso.');
+            }
+            localStorage.setItem('token', accessToken);
+            localStorage.setItem('usuario', JSON.stringify(dados.dadosUsuario));
+            window.location.href = dados.destino;
+        })
+        .catch((err) => {
+            alert(err.message);
+        });
+}
+
+const params = new URLSearchParams(window.location.search);
+const erroOAuth = params.get('error_description') || params.get('erro');
+if (erroOAuth) {
+    alert(decodeURIComponent(erroOAuth.replace(/\+/g, ' ')));
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
 const app = document.getElementById('app');
 
-//div com a img do fundo
 const background = document.createElement('div');
 background.className = 'background';
 
 const divison = document.createElement('div');
-divison.className = 'division'
+divison.className = 'division';
 
-//div principal
 const loginScreen = document.createElement('div');
 loginScreen.className = 'loginScreen';
 
-//container da parte esquerda
 const containerLeft = document.createElement('div');
 containerLeft.className = 'containerLeft';
 
-//container onde fica a logo
 const logoSenacContainer = document.createElement('div');
 logoSenacContainer.className = 'logoSenacContainer';
 
-// container do texto embaixo da logo
 const textLogo1 = document.createElement('p');
 textLogo1.innerHTML = '<b class="textLogoB">EDUCAÇÃO</b> QUE TRANSFORMA';
 const textLogo2 = document.createElement('p');
 textLogo2.innerHTML = '<b class = "textLogoB">ESTOQUE</b> QUE ORGANIZA';
 
-//logo do senac
 const senacLogo = document.createElement('img');
-senacLogo.className = 'senacLogo'
+senacLogo.className = 'senacLogo';
 senacLogo.src = '../../../public/assets/img/SenacLogo.png';
 
-// card escrito Estoque
 const estoqueCard = document.createElement('div');
 estoqueCard.className = 'estoqueCard';
 
-// container da img de caxia no container estoque
 const estoqueImgContainer = document.createElement('div');
 estoqueImgContainer.className = 'imgContainer';
 
-// img de caixa no card estoque
 const estoqueImg = document.createElement('img');
 estoqueImg.src = '../../../public/assets/img/caixaCardEstoque.png';
 
-// texto do card estoque
 const estoqueText = document.createElement('p');
 estoqueText.innerHTML = '<u class = "textEstoqueB">ESTOQUE</u>';
 
@@ -53,38 +74,30 @@ const suportContainer = document.createElement('div');
 suportContainer.className = 'suportContainer';
 
 const suportContainerImg = document.createElement('div');
-suportContainerImg.className = 'suportContainerImg'
+suportContainerImg.className = 'suportContainerImg';
 const suportImg = document.createElement('img');
-suportImg.src = '../../../public/assets/img/suport.png'
+suportImg.src = '../../../public/assets/img/suport.png';
 
 const suportTxt1 = document.createElement('b');
 suportTxt1.textContent = 'Precisa de ajuda?';
 const suportTxt2 = document.createElement('p');
 suportTxt2.textContent = 'Entre em contato com o suporte do Senac';
 
-//a tela entra no app
 app.appendChild(loginScreen);
 
-//o fundo entra na tela
 loginScreen.appendChild(background);
-loginScreen.appendChild(divison)
-//o container da esquerda entra na tela primeiro
+loginScreen.appendChild(divison);
 divison.appendChild(containerLeft);
 
-// o container da logo entra na parte esquerda
 containerLeft.appendChild(logoSenacContainer);
 
-//no container do logo entra a img texto1 e texto2
 logoSenacContainer.appendChild(senacLogo);
 logoSenacContainer.appendChild(textLogo1);
 logoSenacContainer.appendChild(textLogo2);
 
-//na parte esquerda entra o container do estoque
 containerLeft.appendChild(estoqueCard);
 
-// entra no card do estoque o container para a img de caixa
 estoqueCard.appendChild(estoqueImgContainer);
-// coloca a img de caixa no container para ela
 estoqueImgContainer.appendChild(estoqueImg);
 estoqueCard.appendChild(estoqueText);
 
@@ -94,21 +107,15 @@ suportContainerImg.appendChild(suportImg);
 suportContainer.appendChild(suportTxt1);
 suportContainer.appendChild(suportTxt2);
 
-
-
-// container da parte direita da tela
 const containerRight = document.createElement('div');
 containerRight.className = 'containerRight';
 
-// container do login
 const loginContainer = document.createElement('div');
 loginContainer.className = 'loginContainer';
 
-// container da img
 const loginImgContainer = document.createElement('div');
 loginImgContainer.className = 'loginImgContainer';
 
-// img do login
 const loginImg = document.createElement('img');
 loginImg.src = '../../../public/assets/img/login.png';
 
@@ -132,22 +139,18 @@ imgAlerta.src = '../../../public/assets/img/escudoicon.png';
 const alertaTxt = document.createElement('p');
 alertaTxt.textContent = 'Acesso exclusivo para colaboradores.';
 
-// --- Montagem da Tela da Direita ---
 divison.appendChild(containerRight);
 containerRight.appendChild(loginContainer);
 
-// 1. Adiciona a imagem e os textos
 loginContainer.appendChild(loginImgContainer);
 loginImgContainer.appendChild(loginImg);
 loginImgContainer.appendChild(LoginTxt);
 LoginTxt.appendChild(titulo);
 LoginTxt.appendChild(subTitulo);
 
-// 2. Chama o componente do formulário e injeta na tela
 const formLoginComponent = createLoginForm();
 loginContainer.appendChild(formLoginComponent);
 
-// 3. Adiciona o alerta no final
 loginContainer.appendChild(alertaExclusivo);
 alertaExclusivo.appendChild(imgAlerta);
 alertaExclusivo.appendChild(alertaTxt);

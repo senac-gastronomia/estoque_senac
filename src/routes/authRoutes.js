@@ -3,10 +3,10 @@ import AuthController from "../controllers/authController.js";
 
 const router = Router();
 
-router.post("/cadastrar", (req, res) => AuthController.cadastrar(req, res));
+router.get("/microsoft", (req, res) => AuthController.loginMicrosoft(req, res));
 
-router.post("/login", function (req, res){
-    AuthController.login(req, res)
-})
+router.get("/callback", (req, res) => AuthController.handleCallback(req, res));
+
+router.post("/microsoft/validar", (req, res) => AuthController.validarTokenMicrosoft(req, res));
 
 export default router;
