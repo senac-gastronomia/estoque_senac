@@ -18,7 +18,7 @@ export function EditarPedidoComponent() {
     <div class="ep-info">
       <div class="ep-info-item">
         <span class="ep-info-label">Turma</span>
-        <strong>3º Ano A</strong>
+        <strong>Técnico em Gastronomia</strong>
       </div>
  
       <div class="ep-info-item">

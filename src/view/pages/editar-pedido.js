@@ -1,4 +1,6 @@
-import { EditarPedidoComponent } from "../../view/components/EditarPedido.js";
+import { EditarPedidoComponent } from "../components/EditarPedido.js";
+
+const container = document.querySelector("#editar-pedido-container");
  
 export function renderEditarPedido(container) {
   container.innerHTML = "";
@@ -305,11 +307,7 @@ export function renderEditarPedido(container) {
     }
  
     if (action === "voltar") {
-      container.dispatchEvent(
-        new CustomEvent("voltar-meus-pedidos", {
-          bubbles: true
-        })
-      );
+      window.location.assign("/meus-pedidos");
     }
  
     if (action === "salvar") {
@@ -329,8 +327,13 @@ export function renderEditarPedido(container) {
       alert("Alterações fictícias salvas na tela!");
     }
   });
-}
+
   searchInput.addEventListener("input", renderCatalogo);
  
   renderPedido();
   renderCatalogo();
+}
+
+if (container) {
+  renderEditarPedido(container);
+}
