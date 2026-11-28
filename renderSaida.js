@@ -54,9 +54,59 @@ const renderSaida = () => {
     btnSaidaRegistro.textContent = 'Registrar Saida';
     btnSaidaRegistro.className = 'btnSaidaRegistro'
 
+    // Criar a lista das opcoes de medidas e categorias
+    const CriarlistaOpcoes = (opcoes) => {
+
+        const lista = document.createElement('div');
+        lista.className = 'listaOpcoes';
+
+        opcoes.forEach((opcao) => {
+
+            const item = document.createElement('button');
+            item.className = 'itens'
+            item.type = button;
+            item.textContent = 'Itemopcoes'
+
+
+           item.addEventListener('click', () => {
 
 
 
+            lista.querySelectorAll.forEach('.Itemopcoes').forEach((Elemento) =>{
+                Elemento.classList.remove('selecionado');
+            })
+
+            item.classList.add(selecionado);
+           })
+           lista.appendChild(item);
+        });
+        return lista;
+    }
+
+    const CampoCategoria = document.createElement('div');
+    CampoCategoria.className = 'campoLista';
+
+    const LabelCategoria = document.createElement('label');
+    LabelCategoria.textContent = 'Categorias';
+
+    
+
+    const categoria = [
+        'almondega',
+        'feijao'
+    ];
+
+    const listaCategorias = CriarlistaOpcoes(categoria);
+
+    CampoCategoria.appendChild(listaCategorias);
+    CampoCategoria.appendChild(LabelCategoria);
+
+    const LinhaListas = document.createElement('div');
+    LinhaListas.className = 'LinhaListas'
+
+    LinhaListas.appendChild(CampoCategoria)
+
+    popup.appendChild(LinhaListas);
     // Adicionando o cabeçalho ao pop-up
     popup.appendChild(header);
 
